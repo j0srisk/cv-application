@@ -1,11 +1,15 @@
+import Editor from './components/Editor'
+import Preview from './components/Preview'
+
 function App() {
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
+    <app className="flex h-screen bg-slate-400">
+       <main className="flex h-full w-full p-5 gap-5" >
+          <Editor />
+          <Preview />
+      </main>
+    </app>
   )
 }
 
