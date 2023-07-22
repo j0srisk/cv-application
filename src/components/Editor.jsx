@@ -57,6 +57,15 @@ function Editor({ basicInfo, setBasicInfo}) {
                 onChange={handleChange}
             />  
         </div>
+        <div className="flex flex-col">
+            <label htmlFor="summary">Summary</label>
+            <textarea
+                type="text"
+                name="summary"
+                value={basicInfo.summary}
+                onChange={handleChange}
+            />
+        </div>
     </div>
     )
 }
