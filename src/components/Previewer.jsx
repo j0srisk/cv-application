@@ -32,7 +32,7 @@ function Previewer({ resumeData }) {
 
 
     return(
-    <div className="aspect-[8.5/11] rounded-lg bg-white shadow-lg">
+    <div className="aspect-[8.5/11] bg-white my-5 mr-5 border-0 rounded-md shadow-md ring-0 ring-inset ring-gray-300">
         <div  style={{ transform: `scale(${horizontalScale.toFixed(6)})` }} className="flex relative w-[8.5in] h-[11in] origin-top-left">
             <McCombsResume resumeData={resumeData}/>
         </div>

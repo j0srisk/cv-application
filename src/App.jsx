@@ -3,31 +3,33 @@ import Editor from './components/Editor'
 import Previewer from './components/Previewer'
 
 function App() {
-  
+
   const [resumeData, setResumeData] = useState({
     firstName: 'Joseph',
-    lastName: 'Brisk',
+    lastName: 'Risk',
     email: 'j0srisk@utexas.edu',
     phone: '(936) 647-8636',
     social: 'LinkedIn.com/in/JosephRisk',
-    summary: 'I am a full stack web developer with a background in education and a passion for learning. I am a graduate of the University of Texas at Austin Full Stack Web Development Bootcamp. I am a team player with a strong work ethic and a desire to contribute to a team. I am looking for a position as a full stack web developer where I can continue to learn and grow as a developer.',
+    summary: 'Results-driven graduate with a strong academic background in software development, data analytics, and business solutions. Proficient in leveraging emerging technologies to drive business growth and optimize performance. Exceptional written and verbal communication skills facilitating effective collaboration with clients and cross-functional teams. Seeking a tech-centric role to contribute expertise to cutting-edge projects and drive digital transformation.',
     education: [
       {
         school: 'University of Texas at Austin',
-        degree: 'Full Stack Web Development Bootcamp',
-        date: '2021',
+        degree: 'Bachelor of Business Administration',
+        date: 'December 2022',
+        gpa: '3.74',
       },
       {
-        school: 'University of Texas at Austin',
-        degree: 'Bachelor of Science in Education',
-        date: '2019',
+        school: 'McCombs School of Business',
+        degree: 'Management Information Systems',
+        date: 'December 2022',
+        gpa: '3.74',
       },
     ],
   });
 
   return (
-    <div className="flex h-screen bg-slate-200">
-       <main className="flex h-full w-full p-5 gap-5" >
+    <div className="flex h-screen bg-gray-100">
+       <main className="flex h-full w-full" >
           <Editor resumeData={resumeData} setResumeData={setResumeData}/>
           <Previewer resumeData={resumeData}/>
       </main>
