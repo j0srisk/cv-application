@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 
 import McCombsResume from './McCombsResume';
 
-function Previewer({ basicInfo }) {
+function Previewer({ resumeData }) {
     const [horizontalScale, setHorizontalScale] = useState(1);
     const windowHeight = useRef(window.innerHeight);
 
@@ -34,7 +34,7 @@ function Previewer({ basicInfo }) {
     return(
     <div className="aspect-[8.5/11] rounded-lg bg-white shadow-lg">
         <div  style={{ transform: `scale(${horizontalScale.toFixed(6)})` }} className="flex relative w-[8.5in] h-[11in] origin-top-left">
-            <McCombsResume basicInfo={basicInfo}/>
+            <McCombsResume resumeData={resumeData}/>
         </div>
     </div>
     )

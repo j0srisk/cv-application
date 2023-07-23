@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-function Editor({ basicInfo, setBasicInfo, summary, setSummary}) {
+function Editor({ resumeData, setResumeData}) {
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        setBasicInfo({
-            ...basicInfo,
+        setResumeData({
+            ...resumeData,
             [name]: value,
         });
     };
@@ -20,7 +20,7 @@ function Editor({ basicInfo, setBasicInfo, summary, setSummary}) {
                         className="text-lg border-slate-300 border-2 rounded-lg bg-slate-100 p-1"
                         type="text"
                         name="firstName"
-                        value={basicInfo.firstName}
+                        value={resumeData.firstName}
                         onChange={handleChange}
                     />
                 </div>
@@ -30,7 +30,7 @@ function Editor({ basicInfo, setBasicInfo, summary, setSummary}) {
                         className="text-lg border-slate-300 border-2 rounded-lg bg-slate-100 p-1"
                         type="text"
                         name="lastName"
-                        value={basicInfo.lastName}
+                        value={resumeData.lastName}
                         onChange={handleChange}
                     />
                 </div>
@@ -40,7 +40,7 @@ function Editor({ basicInfo, setBasicInfo, summary, setSummary}) {
                         className="text-lg border-slate-300 border-2 rounded-lg bg-slate-100 p-1"
                         type="text"
                         name="email"
-                        value={basicInfo.email}
+                        value={resumeData.email}
                         onChange={handleChange}
                     />
                 </div>
@@ -50,7 +50,7 @@ function Editor({ basicInfo, setBasicInfo, summary, setSummary}) {
                         className="text-lg border-slate-300 border-2 rounded-lg bg-slate-100 p-1"
                         type="text"
                         name="phone"
-                        value={basicInfo.phone}
+                        value={resumeData.phone}
                         onChange={handleChange}
                     />
                 </div>
@@ -60,7 +60,7 @@ function Editor({ basicInfo, setBasicInfo, summary, setSummary}) {
                         className="text-lg border-slate-300 border-2 rounded-lg bg-slate-100 p-1"
                         type="text"
                         name="social"
-                        value={basicInfo.social}
+                        value={resumeData.social}
                         onChange={handleChange}
                     />  
                 </div>
@@ -73,7 +73,7 @@ function Editor({ basicInfo, setBasicInfo, summary, setSummary}) {
                     className="text-lg border-slate-300 border-2 rounded-lg bg-slate-100 p-1 resize-y"
                     type="text"
                     name="summary"
-                    value={summary.summary}
+                    value={resumeData.summary}
                     onChange={handleChange}
                 />
             </div>
