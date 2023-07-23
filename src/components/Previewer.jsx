@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useRef, useState, useEffect } from 'react';
 
+import McCombsResume from './McCombsResume';
+
 function Previewer({ basicInfo }) {
     const [horizontalScale, setHorizontalScale] = useState(1);
     const windowHeight = useRef(window.innerHeight);
@@ -32,7 +34,7 @@ function Previewer({ basicInfo }) {
     return(
     <div className="aspect-[8.5/11] rounded-lg bg-white shadow-lg">
         <div  style={{ transform: `scale(${horizontalScale.toFixed(6)})` }} className="flex relative w-[8.5in] h-[11in] origin-top-left">
-            <h1 className="text-[18pt] font-bold">{basicInfo.firstName} {basicInfo.lastName}</h1>
+            <McCombsResume basicInfo={basicInfo}/>
         </div>
     </div>
     )

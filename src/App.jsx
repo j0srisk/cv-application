@@ -7,8 +7,8 @@ function App() {
     firstName: 'Joseph',
     lastName: 'Risk',
     email: 'j0srisk@utexas.edu',
-    phone: '512-555-5555',
-    social: '@j0srisk',
+    phone: '(936) 647-8636',
+    social: 'LinkedIn.com/in/JosephRisk',
   });
 
   const [summary, setSummary] = useState({
