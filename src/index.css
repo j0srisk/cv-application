@@ -18,26 +18,38 @@
 }
 
 @layer components {
-    .section {
-        @apply border-b border-gray-900/10 pb-12;
+    .card {
+        @apply flex flex-col gap-x-6 gap-y-6 bg-white rounded-md shadow-sm ring-1 ring-inset ring-gray-300 p-8;
     }
 }
 
 @layer components {
-    .section-title {
-        @apply text-base font-semibold leading-7 text-gray-900;
+    .card-title {
+        @apply text-3xl font-bold leading-7 text-gray-900;
     }
 }
 
 @layer components {
-    .section-text {
+    .card-text {
         @apply mt-1 text-sm leading-6 text-gray-600;
     }
 }
 
 @layer components {
-    .card {
-        @apply flex flex-col gap-x-6 gap-y-6 bg-white rounded-md shadow-sm ring-1 ring-inset ring-gray-300 p-8;
+    .item {
+        @apply flex flex-col gap-6 p-8 -mx-8 border-b border-gray-300;
+    }
+}
+
+@layer components {
+    .item-title {
+        @apply text-xl font-bold leading-7 text-gray-900;
+    }
+}
+
+@layer components {
+    .inline-wrapper {
+        @apply flex gap-4
     }
 }
 

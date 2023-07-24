@@ -30,9 +30,10 @@ function App() {
         startDate: 'June 2017',
         endDate: 'December 2022',
         description: [
-          {bullet: '• Developed a solid foundation in a large corporate setting, gaining valuable experience within a Fortune 500 company'},
           {bullet: '• Collaborated with clients and other agencies to identify business requirements and deliver tailored web-based solutions'},
-          {bullet: '• Developed and maintained a portfolio of 10+ clients, generating $50,000+ in revenue'},
+          {bullet: '• Utilized data analytics to optimize web performance and user engagement'},
+          {bullet: '• Implemented front-end technologies (HTML5, CSS3, JavaScript, React) to deliver interactive user experiences'},
+          {bullet: '• Drove revenue growth through proactive sales strategies, acquiring and managing a strong client base'},
         ]
       },
       {
@@ -82,7 +83,6 @@ function App() {
     <div className="flex h-screen bg-gray-100">
        <main className="flex h-full w-full" >
           <Editor resumeData={resumeData} setResumeData={setResumeData}/>
-          <Previewer resumeData={resumeData}/>
       </main>
     </div>
   )
