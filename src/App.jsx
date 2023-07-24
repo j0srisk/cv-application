@@ -21,15 +21,6 @@ function App() {
         endDate: 'December 2022',
         gpa: '3.74',
       },
-      {
-        institution: 'University of Texas at Austin',
-        school: 'McCombs School of Business',
-        degree: 'Bachelor of Business Administration',
-        major: 'Management Information Systems',
-        startDate: 'August 2018',
-        endDate: 'December 2022',
-        gpa: '3.74',
-      },
     ],
     experience: [
       {
@@ -38,7 +29,11 @@ function App() {
         location: 'Austin, TX',
         startDate: 'June 2017',
         endDate: 'December 2022',
-        description: '• Collaborated with clients and other agencies to identify business requirements and deliver tailored web-based solutions'
+        description: [
+          {bullet: '• Developed a solid foundation in a large corporate setting, gaining valuable experience within a Fortune 500 company'},
+          {bullet: '• Collaborated with clients and other agencies to identify business requirements and deliver tailored web-based solutions'},
+          {bullet: '• Developed and maintained a portfolio of 10+ clients, generating $50,000+ in revenue'},
+        ]
       },
       {
         company: 'Markel Corporation',
@@ -46,7 +41,11 @@ function App() {
         location: 'Austin, TX',
         startDate: 'June 2022',
         endDate: 'August 2022',
-        description: '• Developed a solid foundation in a large corporate setting, gaining valuable experience within a Fortune 500 company'
+        description: [
+          {bullet: '• Developed a solid foundation in a large corporate setting, gaining valuable experience within a Fortune 500 company'},
+          {bullet: '• Collaborated with clients and other agencies to identify business requirements and deliver tailored web-based solutions'},
+          {bullet: '• Developed and maintained a portfolio of 10+ clients, generating $50,000+ in revenue'},
+        ]
       },
       {
         company: 'Frontier Extraction Services',
@@ -54,8 +53,28 @@ function App() {
         location: 'Lincoln, NE',
         startDate: 'January 2020',
         endDate: 'January 2022',
-        description: '• Gained valuable entrepreneurial experience through the establishment of a hemp processing and brokering venture'
+        description: [
+          {bullet: '• Developed a solid foundation in a large corporate setting, gaining valuable experience within a Fortune 500 company'},
+          {bullet: '• Collaborated with clients and other agencies to identify business requirements and deliver tailored web-based solutions'},
+          {bullet: '• Developed and maintained a portfolio of 10+ clients, generating $50,000+ in revenue'},
+        ]
       }
+    ],
+    projects: [
+      {
+        name: 'Conflict Management System',
+        client: 'Slayden Grubert Beard PLLC',
+        startDate: '',
+        endDate: 'Fall 2022',
+        description: '• Collaborated with clients and other agencies to identify business requirements and deliver tailored web-based solutions'
+      },
+      {
+        name: 'Book Store System Project',
+        client: 'MIS 333K: Web Application Development',
+        startDate: '',
+        endDate: 'Spring 2022',
+        description: '• Developed a solid foundation in a large corporate setting, gaining valuable experience within a Fortune 500 company'
+      },
     ],
   });
 

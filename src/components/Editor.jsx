@@ -90,13 +90,15 @@ function Editor({ resumeData, setResumeData}) {
 
     return(
     <div className="flex flex-1 flex-col gap-8 p-5 overflow-y-scroll no-scrollbar">
-        <div className="section">
-            <h2 className="section-title">Personal Details</h2>
+
+        <div className="card">
+            <div>
+                <h2 className="text-3xl font-bold leading-7 text-gray-900">Personal Details</h2>
+            </div>
+            
             <p className="section-text">Personal details such as name and job title are essential in a resume to give the recruiter a quick overview of the candidate.</p>
 
-        
-            <div className="card">
-                <div className="flex gap-8">
+            <div className="flex gap-8">
                     <div className="input-wrapper">
                         <label htmlFor="firstName" className="input-title">
                             First name
@@ -133,7 +135,7 @@ function Editor({ resumeData, setResumeData}) {
                         name="email"
                         value={resumeData.email}
                         onChange={handleChange}
-                        className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="input"
                     />
                 </div>
 
@@ -162,40 +164,42 @@ function Editor({ resumeData, setResumeData}) {
                         className="input"
                     />
                 </div>
-            </div>
-        </div>
-        
-        <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">Professional Summary</h2>
-            <p className="mt-1 text-sm leading-6 text-gray-600">Include your professional title, years of experience, and your most impressive achievements. Each achievement should be measurable and expressed in numbers.</p>
 
-            
-            <div className="mt-8 flex flex-col gap-x-6 gap-y-6 bg-white rounded-md shadow-sm ring-1 ring-inset ring-gray-300 p-8">
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="firstName" className="input-title">
-                            Summary
-                    </label>
+        </div>
+
+        <div className="card">
+            <h2 className="text-3xl font-bold leading-7 text-gray-900">Professional Summary</h2>
+            <p className="section-text">Include your professional title, years of experience, and your most impressive achievements. Each achievement should be measurable and expressed in numbers.</p>
+
                     <textarea
                         type="text"
                         name="summary"
                         rows="5"
                         value={resumeData.summary}
                         onChange={handleChange}
-                        className="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="input"
                     />
-                </div>
-            </div>
+
         </div>
 
-        <div className="section">
-            <h2 className="section-title">Education</h2>
+        <div className="card">
+            <h2 className="text-3xl font-bold leading-7 text-gray-900">Education</h2>
             <p className="section-text">Add the name of your school, where it is located, what degree you obtained, your field of study, and your graduation year.</p>
 
-            <div className="">
+            <div className="-mt-8">
                 {/* Map through each education item in the education array */}
                 {resumeData.education.map((educationItem, index) => (
                     <div key={index}>
-                        <div className="card">
+                        <div className="flex flex-col gap-6 p-8 -mx-8 border-b border-gray-300">
+                            <div className="flex justify-between">
+                                <h3 className="text-xl font-bold leading-7 text-gray-900"> {educationItem.institution ? educationItem.institution : "Untitled"}</h3>
+                                <button
+                                    type="button"
+                                    onClick={() => removeEducation(index)}
+                                    className="text-sm text-red-600 font-bold">
+                                    Delete
+                                </button>
+                            </div>
                             <div className="input-wrapper">
                                 <label htmlFor={`institution${index}`} className="input-title">
                                     Institution
@@ -291,38 +295,42 @@ function Editor({ resumeData, setResumeData}) {
                                 </div>
                             </div>
 
-                            <button 
-                                type="button"
-                                onClick={() => removeEducation(index)}
-                                className="block w-full rounded-md shadow-sm border-0 px-4 py-2 bg-red-600 text-white font-bold">
-                                Remove Education
-                            </button>
 
-                            {/* Add other input fields for degree, date, and GPA similarly */}
-                            {/* ... */}
                         </div>
                     </div>
                 ))}
             </div>
 
+            <div className="flex justify-end mt-2">
             <button 
                 type="button"
                 onClick={addEducation}
-                className="block w-full mt-6 rounded-md shadow-sm border-0 px-4 py-2  bg-indigo-600 text-white font-bold">
+                className="block w-fit rounded-md shadow-sm border-0 px-4 py-2  bg-indigo-600 text-white font-bold">
                 Add Education
             </button>
+            </div>
         </div>
 
-        <div className="section">
-            <h2 className="section-title">Experience</h2>
+        <div className="card">
+            <h2 className="text-3xl font-bold leading-7 text-gray-900">Experience</h2>
             <p className="section-text">Show employers your past experience and what you have accomplished. Include simple, clear examples with action verbs to demonstrate your skills.</p>
 
-            <div className="">
+            <div className="-mt-8">
                 {/* Map through each education item in the education array */}
                 {resumeData.experience.map((experienceItem, index) => (
                     <div key={index}>
-                        <div className="card">
-
+                        <div className="flex flex-col gap-6 p-8 -mx-8 border-b border-gray-300">
+                            <div className="flex justify-between">
+                                <h3 className="text-xl font-bold leading-7 text-gray-900"> {experienceItem.company ? experienceItem.company : "Untitled"}</h3>
+                                <button
+                                    type="button"
+                                    onClick={() => removeEducation(index)}
+                                    className="text-sm text-red-600 font-bold">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray" className="w-5 h-5">
+                                            <path fillRule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clipRule="evenodd" />
+                                        </svg>
+                                </button>
+                            </div>
                             <div className="flex gap-6">
                                 <div className="input-wrapper">
                                     <label htmlFor={`company${index}`} className="input-title">
@@ -350,7 +358,6 @@ function Editor({ resumeData, setResumeData}) {
                                     />
                                 </div>
                             </div>
-
                             <div className="flex gap-6">
                                 <div className="input-wrapper">
                                     <label htmlFor={`location${index}`} className="input-title">
@@ -391,42 +398,51 @@ function Editor({ resumeData, setResumeData}) {
                                     />
                                 </div>
                             </div>
-
+                                
                             <div className="input-wrapper" >
                                 <label htmlFor={`description${index}`} className="input-title">
                                     Description
                                 </label>
-                                <textarea
-                                    type="text"
-                                    name={`description${index}`}
-                                    rows="5"
-                                    value={experienceItem.description}
-                                    onChange={(e) => handleExperienceChange(index, 'description', e.target.value)}
-                                    className="input"
-                                />
+                                <div className="flex flex-col gap-4">
+                                {resumeData.experience[index].description.map((descriptionItem, index) => (
+                                    <div key={index}>
+                                        <div className="flex gap-4">
+                                            <input
+                                                type="text"
+                                                name={`description${index}`}
+                                                value={descriptionItem.bullet}
+                                                onChange={(e) => handleExperienceChange(index, 'description', e.target.value)}
+                                                className="input"
+                                            />
+
+                                            <button className="input w-fit">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="gray" className="w-5 h-5">
+                                                    <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                                </div>
+                                <button className="input mt-4">
+                                        Add Bullet Point
+                                </button>
                             </div>
-
-                            <button 
-                                type="button"
-                                onClick={() => removeExperience(index)}
-                                className="block w-full rounded-md shadow-sm border-0 px-4 py-2 bg-red-600 text-white font-bold">
-                                Remove Experience
-                            </button>
-
-                            {/* Add other input fields for degree, date, and GPA similarly */}
-                            {/* ... */}
                         </div>
                     </div>
                 ))}
             </div>
 
+            <div className="flex justify-end mt-2">
             <button 
                 type="button"
                 onClick={addExperience}
-                className="block w-full mt-6 rounded-md shadow-sm border-0 px-4 py-2  bg-indigo-600 text-white font-bold">
+                className="block w-fit rounded-md shadow-sm border-0 px-4 py-2  bg-indigo-600 text-white font-bold">
                 Add Experience
             </button>
+            </div>
         </div>
+
     </div>
     )
 }
