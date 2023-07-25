@@ -81,7 +81,7 @@ function Projects ({ resumeData, setResumeData, handleChange, removeItem }){
                         <div className="inline-wrapper">
                             <div className="input-wrapper">
                                 <label htmlFor={`startDate${index}`} className="input-title">
-                                    Start date
+                                    Start Date
                                 </label>
                                 <input
                                     type="text"
@@ -94,7 +94,7 @@ function Projects ({ resumeData, setResumeData, handleChange, removeItem }){
 
                             <div className="input-wrapper">
                                 <label htmlFor={`endDate${index}`} className="input-title">
-                                    End date
+                                    End Date
                                 </label>
                                 <input
                                     type="text"

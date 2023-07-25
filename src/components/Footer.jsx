@@ -1,7 +1,7 @@
 function Footer (){
 
     return (
-        <div className="card p-2">
+        <div className="card p-3">
             <div className="flex justify-center items-center gap-2">
                 <p className="text-center text-sm leading-6 text-slate-500">Created By Joseph Risk</p>
                 <a href="https://github.com/j0srisk" aria-label="Homepage" className="w-4 h-4 content-center" title="GitHub">
