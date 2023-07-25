@@ -16,14 +16,19 @@ function Summary ({ resumeData, setResumeData }){
 
         <p className="card-text">Include your professional title, years of experience, and your most impressive achievements. Each achievement should be measurable and expressed in numbers.</p>
 
-        <textarea
-            type="text"
-            name="summary"
-            rows="5"
-            value={resumeData.summary}
-            onChange={handleChange}
-            className="input"
-        />
+        <div className="input-wrapper">
+            <label htmlFor="summary" className="input-title">
+                Summary
+            </label>
+            <textarea
+                type="text"
+                name="summary"
+                rows="5"
+                value={resumeData.summary}
+                onChange={handleChange}
+                className="input"
+            />
+        </div>
 
     </div>
     )
