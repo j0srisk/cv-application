@@ -7,6 +7,8 @@ import Projects from "./editors/Projects";
 import Awards from "./editors/Awards";
 import AdditionalInfo from "./editors/AdditionalInfo";
 
+import Footer from "./Footer";
+
 function Editor({ resumeData, setResumeData }) {
 
     const handleChange = (arrayName, index, field, value, subArrayName = null, subIndex = null) => {
@@ -44,7 +46,7 @@ function Editor({ resumeData, setResumeData }) {
     };
 
     return(
-        <div className="flex flex-1 flex-col gap-8 p-5 overflow-y-scroll no-scrollbar">
+        <div className="flex flex-1 flex-col gap-8 p-5 overflow-y-scroll no-scrollbar scroll-smooth">
 
             <Details resumeData={resumeData} setResumeData={setResumeData}/>
 
@@ -60,6 +62,8 @@ function Editor({ resumeData, setResumeData }) {
 
             <AdditionalInfo resumeData={resumeData} setResumeData={setResumeData} handleChange={handleChange} removeItem={removeItem}/>
 
+            <Footer/>
+            
         </div>
     )
 }
