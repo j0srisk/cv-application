@@ -166,6 +166,11 @@ function Experience ({ resumeData, setResumeData, handleChange, removeItem }) {
                 ))}
             </div>
 
+            {resumeData.experience.length === 0 && (
+                <div className="item p-0 pt-2">
+                </div>
+            )}
+
             <div className="flex justify-end mt-2">
                 <button 
                     type="button"

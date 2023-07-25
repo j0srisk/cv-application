@@ -17,7 +17,7 @@ function App() {
         school: 'McCombs School of Business',
         degree: 'Bachelor of Business Administration',
         major: 'Management Information Systems',
-        startDate: 'August 2018',
+        startDate: '',
         endDate: 'December 2022',
         gpa: '3.74',
       },
@@ -90,7 +90,7 @@ function App() {
     ],
     awards: [
       {
-        name: 'Deans List',
+        name: '4 Semesters University Honors (Dean’s List)',
         date: 'Fall 2022'
       },
       {
@@ -121,7 +121,7 @@ function App() {
   return (
     <div className="flex h-screen bg-gray-100">
        <main className="flex h-full w-full" >
-          <Editor resumeData={resumeData} setResumeData={setResumeData}/>
+        <Editor resumeData={resumeData} setResumeData={setResumeData}/>
           <Previewer resumeData={resumeData}/>
       </main>
     </div>

@@ -151,6 +151,11 @@ function Projects ({ resumeData, setResumeData, handleChange, removeItem }){
                 ))}
             </div>
 
+            {resumeData.projects.length === 0 && (
+                <div className="item p-0 pt-2">
+                </div>
+            )}
+
             <div className="flex justify-end mt-2">
                 <button 
                     type="button"

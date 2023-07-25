@@ -140,6 +140,11 @@ function Editor ({ resumeData, setResumeData, removeItem, handleChange }){
                     </div>
                 ))}
             </div>
+            
+            {resumeData.education.length === 0 && (
+                <div className="item p-0 pt-2">
+                </div>
+            )}
 
             <div className="flex justify-end mt-2">
                 <button 
