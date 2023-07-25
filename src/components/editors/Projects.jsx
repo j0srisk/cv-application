@@ -109,7 +109,7 @@ function Projects ({ resumeData, setResumeData, handleChange, removeItem }){
                         <div className="input-wrapper" >
 
                             <label htmlFor={`description${index}`} className="input-title">
-                                Description
+                                Details
                             </label>
 
                             <div className="flex flex-col gap-4">
@@ -142,7 +142,7 @@ function Projects ({ resumeData, setResumeData, handleChange, removeItem }){
                             <button 
                                 onClick={() => addBullet('projects', index)}
                                 className="input mt-4">
-                                    Add Bullet Point
+                                    Add Detail
                             </button>
 
                         </div>

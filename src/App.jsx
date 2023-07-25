@@ -88,7 +88,7 @@ function App() {
         ],
       },
     ],
-    honors: [
+    awards: [
       {
         name: 'Deans List',
         date: 'Fall 2022'
@@ -101,19 +101,19 @@ function App() {
     additionalInfo: [
       {
         name: 'Skills',
-        value: 'SQL, Python, JavaScript, HTML, CSS, Docker, Unifi, Agile Methodology, Prompt Engineering, Customer Success, MS Office'
+        description: 'SQL, Python, JavaScript, HTML, CSS, Docker, Unifi, Agile Methodology, Prompt Engineering, Customer Success, MS Office'
       },
       {
         name: 'Certifications',
-        value: 'In Progress - Azure Fundamentals AZ-900'
+        description: 'In Progress - Azure Fundamentals AZ-900'
       },
       {
         name: 'Interests',
-        value: 'Weightlifting, Sim Racing, Overlanding, Skiing, NCAA Football, Homelabbing, Networking'
+        description: 'Weightlifting, Sim Racing, Overlanding, Skiing, NCAA Football, Homelabbing, Networking'
       },
       {
         name: 'Work Eligibility',
-        value: 'Eligible to work in the U.S. with no restrictions; Open to relocation'
+        description: 'Eligible to work in the U.S. with no restrictions; Open to relocation'
       },
     ],
   });
@@ -122,6 +122,7 @@ function App() {
     <div className="flex h-screen bg-gray-100">
        <main className="flex h-full w-full" >
           <Editor resumeData={resumeData} setResumeData={setResumeData}/>
+          <Previewer resumeData={resumeData}/>
       </main>
     </div>
   )

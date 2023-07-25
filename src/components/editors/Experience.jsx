@@ -125,7 +125,7 @@ function Experience ({ resumeData, setResumeData, handleChange, removeItem }) {
                         <div className="input-wrapper" >
 
                             <label htmlFor={`description${index}`} className="input-title">
-                                Description
+                                Details
                             </label>
 
                             <div className="flex flex-col gap-4">
@@ -158,7 +158,7 @@ function Experience ({ resumeData, setResumeData, handleChange, removeItem }) {
                             <button 
                                 onClick={() => addBullet('experience', index)}
                                 className="input mt-4">
-                                    Add Bullet Point
+                                    Add Detail
                             </button>
 
                         </div>

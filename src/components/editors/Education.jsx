@@ -1,25 +1,5 @@
 /* eslint-disable react/prop-types */
-function Editor ({ resumeData, setResumeData }){
-
-    const removeItem = (fieldName, index) => {
-        const updatedArray = [...resumeData[fieldName]];
-        updatedArray.splice(index, 1);
-
-        setResumeData({
-            ...resumeData,
-            [fieldName]: updatedArray,
-        });
-    };
-
-    const handleChange = (arrayName, index, field, value) => {
-        const updatedArray = [...resumeData[arrayName]];
-        updatedArray[index][field] = value;
-
-        setResumeData({
-            ...resumeData,
-            [arrayName]: updatedArray,
-        });
-    };
+function Editor ({ resumeData, setResumeData, removeItem, handleChange }){
 
     const addEducation = () => {
         const newEducation = {

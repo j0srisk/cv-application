@@ -4,6 +4,8 @@ import Summary from "./editors/Summary";
 import Education from "./editors/Education";
 import Experience from "./editors/Experience";
 import Projects from "./editors/Projects";
+import Awards from "./editors/Awards";
+import AdditionalInfo from "./editors/AdditionalInfo";
 
 function Editor({ resumeData, setResumeData }) {
 
@@ -26,7 +28,6 @@ function Editor({ resumeData, setResumeData }) {
 
     const removeItem = (arrayName, index, subArrayName = null, subIndex = null) => {
         const updatedArray = [...resumeData[arrayName]];
-        console.log(arrayName, index, subArrayName, subIndex)
 
         if (subArrayName !== null && subIndex !== null) {
           // Remove a sub-item
@@ -49,11 +50,15 @@ function Editor({ resumeData, setResumeData }) {
 
             <Summary resumeData={resumeData} setResumeData={setResumeData}/>
 
-            <Education resumeData={resumeData} setResumeData={setResumeData}/>
+            <Education resumeData={resumeData} setResumeData={setResumeData} handleChange={handleChange} removeItem={removeItem}/>
 
             <Experience resumeData={resumeData} setResumeData={setResumeData} handleChange={handleChange} removeItem={removeItem}/>
 
             <Projects resumeData={resumeData} setResumeData={setResumeData} handleChange={handleChange} removeItem={removeItem}/>
+
+            <Awards resumeData={resumeData} setResumeData={setResumeData} handleChange={handleChange} removeItem={removeItem}/>
+
+            <AdditionalInfo resumeData={resumeData} setResumeData={setResumeData} handleChange={handleChange} removeItem={removeItem}/>
 
         </div>
     )
