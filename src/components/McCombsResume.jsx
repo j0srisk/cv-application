@@ -2,7 +2,7 @@
 function McCombsResume({ resumeData }) {
     return(
         /*Entire Page*/
-        <div className="flex flex-col gap-[10.5pt] p-[.5in] w-full font-calibri">
+        <div className="flex flex-col gap-[10.5pt] p-[.5in] w-full font-calibr overflow-hidden">
 
             {/*Basic Info*/}
             <div>
