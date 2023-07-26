@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
+import { v4 as uuidv4 } from 'uuid';
+
 function Editor({ resumeData, setResumeData, removeItem, handleChange }) {
 	const addEducation = () => {
 		const newEducation = {
+			id: uuidv4(),
 			institution: '',
 			school: '',
 			degree: '',
@@ -27,7 +30,7 @@ function Editor({ resumeData, setResumeData, removeItem, handleChange }) {
 
 			<div className="-mt-8">
 				{resumeData.education.map((educationItem, index) => (
-					<div key={index} className="item">
+					<div key={educationItem.id} className="item">
 						<div className="flex justify-between">
 							<h3 className="item-title">
 								{' '}

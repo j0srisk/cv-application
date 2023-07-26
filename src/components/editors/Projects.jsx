@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
+import { v4 as uuidv4 } from 'uuid';
+
 function Projects({ resumeData, setResumeData, handleChange, removeItem }) {
 	const addProject = () => {
 		const newProject = {
+			id: uuidv4(),
 			name: '',
 			client: '',
 			startDate: '',
@@ -17,7 +20,12 @@ function Projects({ resumeData, setResumeData, handleChange, removeItem }) {
 
 	const addBullet = (arrayName, index) => {
 		const updatedArray = [...resumeData[arrayName]];
-		updatedArray[index].description.push({ bullet: '' });
+		const newBullet = {
+			id: uuidv4(),
+			bullet: '',
+		};
+
+		updatedArray[index].description.push(newBullet);
 
 		setResumeData({
 			...resumeData,
@@ -32,7 +40,7 @@ function Projects({ resumeData, setResumeData, handleChange, removeItem }) {
 
 			<div className="-mt-8">
 				{resumeData.projects.map((projectItem, index) => (
-					<div key={index} className="item">
+					<div key={projectItem.id} className="item">
 						<div className="flex justify-between">
 							<h3 className="text-xl font-bold leading-7 text-gray-900">
 								{' '}

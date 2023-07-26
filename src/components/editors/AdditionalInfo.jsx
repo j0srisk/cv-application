@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
+import { v4 as uuidv4 } from 'uuid';
+
 function AdditionalInfo({ resumeData, setResumeData, handleChange, removeItem }) {
 	const addAdditionalInfo = () => {
 		const newAdditionalInfo = {
+			id: uuidv4(),
 			name: '',
 			description: '',
 		};
@@ -23,7 +26,7 @@ function AdditionalInfo({ resumeData, setResumeData, handleChange, removeItem })
 
 			<div className="-mt-8">
 				{resumeData.additionalInfo.map((additionalInfoItem, index) => (
-					<div key={index} className="item">
+					<div key={additionalInfoItem.id} className="item">
 						<div className="flex justify-between">
 							<h3 className="item-title">
 								{' '}

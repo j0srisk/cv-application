@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
+import { v4 as uuidv4 } from 'uuid';
+
 function Experience({ resumeData, setResumeData, handleChange, removeItem }) {
 	const addExperience = () => {
 		// Create a new empty experience item
 		const newExperience = {
+			id: uuidv4(),
 			company: '',
 			title: '',
 			location: '',
@@ -22,7 +25,12 @@ function Experience({ resumeData, setResumeData, handleChange, removeItem }) {
 
 	const addBullet = (arrayName, index) => {
 		const updatedArray = [...resumeData[arrayName]];
-		updatedArray[index].description.push({ bullet: '' });
+		const newBullet = {
+			id: uuidv4(),
+			bullet: '',
+		};
+
+		updatedArray[index].description.push(newBullet);
 
 		setResumeData({
 			...resumeData,
@@ -40,7 +48,7 @@ function Experience({ resumeData, setResumeData, handleChange, removeItem }) {
 
 			<div className="-mt-8">
 				{resumeData.experience.map((experienceItem, index) => (
-					<div key={index} className="item">
+					<div key={experienceItem.id} className="item">
 						<div className="flex justify-between">
 							<h3 className="text-xl font-bold leading-7 text-gray-900">
 								{' '}
