@@ -19,8 +19,22 @@
           -ms-overflow-style: none;  /* IE and Edge */
           scrollbar-width: none;  /* Firefox */
       }
+
+      .rendering-speed {
+        text-rendering: optimizeSpeed;
+      }
+  
+      .rendering-legibility {
+        text-rendering: optimizeLegibility;
+      }
+  
+      .rendering-precision {
+        text-rendering: geometricPrecision;
+      }
     }
 }
+
+@layer utilities {}
 
 @layer components {
     .card {
