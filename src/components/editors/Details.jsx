@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 const Details = ({ resumeData, setResumeData }) => {
 	const handleChange = (e) => {
 		const { name, value } = e.target;

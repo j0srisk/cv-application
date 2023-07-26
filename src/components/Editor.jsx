@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Details from './editors/Details';
 import Summary from './editors/Summary';
 import Education from './editors/Education';
@@ -6,7 +5,6 @@ import Experience from './editors/Experience';
 import Projects from './editors/Projects';
 import Awards from './editors/Awards';
 import AdditionalInfo from './editors/AdditionalInfo';
-
 import Footer from './Footer';
 
 const Editor = ({ resumeData, setResumeData }) => {

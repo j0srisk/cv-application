@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useRef, useState, useEffect } from 'react';
 import { useReactToPrint } from 'react-to-print';
 

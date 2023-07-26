@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { v4 as uuidv4 } from 'uuid';
 
 const Editor = ({ resumeData, setResumeData, removeItem, handleChange }) => {
