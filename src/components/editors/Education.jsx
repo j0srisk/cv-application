@@ -111,7 +111,7 @@ function Editor({ resumeData, setResumeData, removeItem, handleChange }) {
 						<div className="inline-wrapper">
 							<div className="input-wrapper">
 								<label htmlFor={`gpa${index}`} className="input-title">
-									Grade Point Average
+									GPA
 								</label>
 								<input
 									type="text"
