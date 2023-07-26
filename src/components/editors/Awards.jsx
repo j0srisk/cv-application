@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { v4 as uuidv4 } from 'uuid';
 
-function Awards({ resumeData, setResumeData, handleChange, removeItem }) {
+const Awards = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 	const addAward = () => {
 		const newAward = {
 			id: uuidv4(),
@@ -94,6 +94,6 @@ function Awards({ resumeData, setResumeData, handleChange, removeItem }) {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Awards;

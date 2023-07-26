@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { v4 as uuidv4 } from 'uuid';
 
-function Projects({ resumeData, setResumeData, handleChange, removeItem }) {
+const Projects = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 	const addProject = () => {
 		const newProject = {
 			id: uuidv4(),
@@ -189,6 +189,6 @@ function Projects({ resumeData, setResumeData, handleChange, removeItem }) {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Projects;

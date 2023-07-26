@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { v4 as uuidv4 } from 'uuid';
 
-function AdditionalInfo({ resumeData, setResumeData, handleChange, removeItem }) {
+const AdditionalInfo = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 	const addAdditionalInfo = () => {
 		const newAdditionalInfo = {
 			id: uuidv4(),
@@ -97,6 +97,6 @@ function AdditionalInfo({ resumeData, setResumeData, handleChange, removeItem })
 			</div>
 		</div>
 	);
-}
+};
 
 export default AdditionalInfo;

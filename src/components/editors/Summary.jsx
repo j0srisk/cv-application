@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Summary({ resumeData, setResumeData }) {
+const Summary = ({ resumeData, setResumeData }) => {
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setResumeData({
@@ -32,6 +32,6 @@ function Summary({ resumeData, setResumeData }) {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Summary;

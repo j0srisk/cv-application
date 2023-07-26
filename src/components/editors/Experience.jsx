@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { v4 as uuidv4 } from 'uuid';
 
-function Experience({ resumeData, setResumeData, handleChange, removeItem }) {
+const Experience = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 	const addExperience = () => {
 		// Create a new empty experience item
 		const newExperience = {
@@ -210,6 +210,6 @@ function Experience({ resumeData, setResumeData, handleChange, removeItem }) {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Experience;

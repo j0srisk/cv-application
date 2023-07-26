@@ -9,7 +9,7 @@ import AdditionalInfo from './editors/AdditionalInfo';
 
 import Footer from './Footer';
 
-function Editor({ resumeData, setResumeData }) {
+const Editor = ({ resumeData, setResumeData }) => {
 	const handleChange = (arrayName, index, field, value, subArrayName = null, subIndex = null) => {
 		const updatedArray = [...resumeData[arrayName]];
 
@@ -88,6 +88,6 @@ function Editor({ resumeData, setResumeData }) {
 			<Footer />
 		</div>
 	);
-}
+};
 
 export default Editor;

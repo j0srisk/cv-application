@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { v4 as uuidv4 } from 'uuid';
 
-function Editor({ resumeData, setResumeData, removeItem, handleChange }) {
+const Editor = ({ resumeData, setResumeData, removeItem, handleChange }) => {
 	const addEducation = () => {
 		const newEducation = {
 			id: uuidv4(),
@@ -168,6 +168,6 @@ function Editor({ resumeData, setResumeData, removeItem, handleChange }) {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Editor;

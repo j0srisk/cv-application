@@ -1,4 +1,4 @@
-function Footer() {
+const Footer = () => {
 	return (
 		<div className="card p-3">
 			<div className="flex items-center justify-center gap-2">
@@ -25,6 +25,6 @@ function Footer() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Footer;

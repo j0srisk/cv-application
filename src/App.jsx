@@ -3,7 +3,7 @@ import Editor from './components/Editor';
 import Previewer from './components/Previewer';
 import { v4 as uuidv4 } from 'uuid';
 
-function App() {
+const App = () => {
 	const [resumeData, setResumeData] = useState({
 		firstName: 'Joseph',
 		lastName: 'Risk',
@@ -216,6 +216,6 @@ function App() {
 			</main>
 		</div>
 	);
-}
+};
 
 export default App;
