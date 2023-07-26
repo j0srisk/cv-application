@@ -3,89 +3,90 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Calibri";
-    src: url("../src/assets/fonts/calibri-regular.ttf");
+	font-family: 'Calibri';
+	src: url('../src/assets/fonts/calibri-regular.ttf');
 }
 
 @layer utilities {
-    @variants responsive {
-      /* Hide scrollbar for Chrome, Safari and Opera */
-      .no-scrollbar::-webkit-scrollbar {
-          display: none;
-      }
+	@variants responsive {
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		.no-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
 
-      /* Hide scrollbar for IE, Edge and Firefox */
-      .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-      }
+		/* Hide scrollbar for IE, Edge and Firefox */
+		.no-scrollbar {
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+		}
 
-      .rendering-speed {
-        text-rendering: optimizeSpeed;
-      }
-  
-      .rendering-legibility {
-        text-rendering: optimizeLegibility;
-      }
-  
-      .rendering-precision {
-        text-rendering: geometricPrecision;
-      }
-    }
+		.rendering-speed {
+			text-rendering: optimizeSpeed;
+		}
+
+		.rendering-legibility {
+			text-rendering: optimizeLegibility;
+		}
+
+		.rendering-precision {
+			text-rendering: geometricPrecision;
+		}
+	}
 }
 
-@layer utilities {}
-
-@layer components {
-    .card {
-        @apply flex flex-col gap-x-6 gap-y-6 bg-white rounded-md shadow-sm ring-1 ring-inset ring-gray-300 p-8;
-    }
+@layer utilities {
 }
 
 @layer components {
-    .card-title {
-        @apply text-3xl font-bold leading-7 text-gray-900;
-    }
+	.card {
+		@apply flex flex-col gap-x-6 gap-y-6 rounded-md bg-white p-8 shadow-sm ring-1 ring-inset ring-gray-300;
+	}
 }
 
 @layer components {
-    .card-text {
-        @apply mt-1 text-sm leading-6 text-gray-600;
-    }
+	.card-title {
+		@apply text-3xl font-bold leading-7 text-gray-900;
+	}
 }
 
 @layer components {
-    .item {
-        @apply flex flex-col gap-6 p-8 -mx-8 border-b border-gray-300;
-    }
+	.card-text {
+		@apply mt-1 text-sm leading-6 text-gray-600;
+	}
 }
 
 @layer components {
-    .item-title {
-        @apply text-xl font-bold leading-7 text-gray-900;
-    }
+	.item {
+		@apply -mx-8 flex flex-col gap-6 border-b border-gray-300 p-8;
+	}
 }
 
 @layer components {
-    .inline-wrapper {
-        @apply flex gap-4
-    }
+	.item-title {
+		@apply text-xl font-bold leading-7 text-gray-900;
+	}
 }
 
 @layer components {
-    .input-wrapper {
-        @apply flex flex-col flex-1;
-    }
+	.inline-wrapper {
+		@apply flex gap-4;
+	}
 }
 
 @layer components {
-    .input-title {
-        @apply block mb-2 text-sm font-medium leading-6 text-gray-900;
-    }
+	.input-wrapper {
+		@apply flex flex-1 flex-col;
+	}
 }
 
 @layer components {
-    .input {
-        @apply block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
-    }
+	.input-title {
+		@apply mb-2 block text-sm font-medium leading-6 text-gray-900;
+	}
+}
+
+@layer components {
+	.input {
+		@apply block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+	}
 }
