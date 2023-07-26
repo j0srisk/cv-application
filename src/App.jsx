@@ -178,7 +178,7 @@ function App() {
 
 	return (
 		<div className="flex h-screen bg-gray-100">
-			<main className="flex h-full w-full">
+			<main className="no-scrollbar flex h-fit w-full flex-col lg:h-full lg:flex-row">
 				<Editor resumeData={resumeData} setResumeData={setResumeData} />
 				<Previewer resumeData={resumeData} />
 			</main>
