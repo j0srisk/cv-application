@@ -39,7 +39,7 @@
 
 @layer components {
 	.card {
-		@apply flex flex-col gap-x-6 gap-y-6 rounded-md bg-white p-8 shadow-sm ring-1 ring-inset ring-gray-300;
+		@apply flex flex-1 flex-col gap-x-6 gap-y-6 rounded-md bg-white p-8 shadow-sm ring-1 ring-inset ring-gray-300;
 	}
 }
 

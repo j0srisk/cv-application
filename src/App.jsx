@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Editor from './components/Editor';
 import Previewer from './components/Previewer';
 import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
-	const [resumeData, setResumeData] = useState({
+	const defaultResumeData = {
 		firstName: 'Joseph',
 		lastName: 'Risk',
 		email: 'j0srisk@utexas.edu',
@@ -206,12 +206,26 @@ const App = () => {
 				description: 'Eligible to work in the U.S. with no restrictions; Open to relocation',
 			},
 		],
+	};
+
+	const [resumeData, setResumeData] = useState(() => {
+		const savedData = localStorage.getItem('resumeData');
+		return savedData ? JSON.parse(savedData) : defaultResumeData;
 	});
+
+	// Save the resumeData to local storage whenever it changes
+	useEffect(() => {
+		localStorage.setItem('resumeData', JSON.stringify(resumeData));
+	}, [resumeData]);
 
 	return (
 		<div className="flex h-screen bg-gray-100">
 			<main className="no-scrollbar flex h-fit w-full flex-col lg:h-full lg:flex-row">
-				<Editor resumeData={resumeData} setResumeData={setResumeData} />
+				<Editor
+					resumeData={resumeData}
+					setResumeData={setResumeData}
+					defaultResumeData={defaultResumeData}
+				/>
 				<Previewer resumeData={resumeData} />
 			</main>
 		</div>

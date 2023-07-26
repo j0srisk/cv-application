@@ -7,7 +7,7 @@ import Awards from './editors/Awards';
 import AdditionalInfo from './editors/AdditionalInfo';
 import Footer from './Footer';
 
-const Editor = ({ resumeData, setResumeData }) => {
+const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 	const handleChange = (arrayName, index, field, value, subArrayName = null, subIndex = null) => {
 		const updatedArray = [...resumeData[arrayName]];
 
@@ -40,6 +40,10 @@ const Editor = ({ resumeData, setResumeData }) => {
 			...resumeData,
 			[arrayName]: updatedArray,
 		});
+	};
+
+	const resetToDefault = () => {
+		setResumeData(defaultResumeData);
 	};
 
 	return (
@@ -83,7 +87,15 @@ const Editor = ({ resumeData, setResumeData }) => {
 				removeItem={removeItem}
 			/>
 
-			<Footer />
+			<div className="flex justify-end gap-4">
+				<Footer />
+				<button
+					className="block w-fit rounded-md border-0 bg-indigo-600 px-4 font-bold text-white shadow-sm"
+					onClick={resetToDefault}
+				>
+					Reset to Default
+				</button>
+			</div>
 		</div>
 	);
 };
