@@ -12,8 +12,6 @@ const Previewer = ({ resumeData }) => {
 	// Function to calculate the horizontalScale based on window dimensions
 	const calculateScale = () => {
 		const newHorizontalScale = (windowHeight.current - 40) / 1056;
-		console.log(windowHeight.current);
-		console.log(newHorizontalScale);
 		const newVerticalScale = (windowWidth.current - 40) / 816;
 		setHorizontalScale(newHorizontalScale);
 		setVerticalScale(newVerticalScale);
