@@ -1,3 +1,4 @@
+import Role from './Role';
 import Details from './editors/Details';
 import Summary from './editors/Summary';
 import Education from './editors/Education';
@@ -48,6 +49,8 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 
 	return (
 		<div className="no-scrollbar flex flex-1 flex-col gap-8 overflow-y-scroll scroll-smooth p-5">
+			<Role resumeData={resumeData} setResumeData={setResumeData} />
+
 			<Details resumeData={resumeData} setResumeData={setResumeData} />
 
 			<Summary resumeData={resumeData} setResumeData={setResumeData} />

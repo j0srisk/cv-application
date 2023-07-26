@@ -5,6 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
 	const defaultResumeData = {
+		jobTitle: 'Software Developer',
+		companyName: 'Google',
+		jobDescription: '',
 		firstName: 'Joseph',
 		lastName: 'Risk',
 		email: 'j0srisk@utexas.edu',

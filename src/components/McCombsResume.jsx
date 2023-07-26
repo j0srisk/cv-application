@@ -219,7 +219,7 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 											•
 										</p>
-										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
+										<p className="font-calibri rendering-precision text-[10.5pt] font-bold leading-[1.15]">
 											{award.name}
 										</p>
 									</div>
