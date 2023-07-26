@@ -219,7 +219,7 @@ const App = () => {
 	}, [resumeData]);
 
 	return (
-		<div className="flex h-screen bg-gray-100">
+		<div className="flex h-screen">
 			<main className="no-scrollbar flex h-fit w-full flex-col lg:h-full lg:flex-row">
 				<Editor
 					resumeData={resumeData}
