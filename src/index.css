@@ -20,6 +20,10 @@
 			scrollbar-width: none; /* Firefox */
 		}
 
+		.font-calibri {
+			font-family: 'Calibri', sans-serif;
+		}
+
 		.rendering-speed {
 			text-rendering: optimizeSpeed;
 		}

@@ -2,7 +2,9 @@ const Footer = () => {
 	return (
 		<div className="card p-3">
 			<div className="flex items-center justify-center gap-2">
-				<p className="text-center text-sm leading-6 text-slate-500">Created By Joseph Risk</p>
+				<p className="text-center text-sm font-bold leading-6 text-[#808080]">
+					Created By Joseph Risk
+				</p>
 				<a
 					href="https://github.com/j0srisk"
 					aria-label="Homepage"
