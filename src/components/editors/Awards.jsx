@@ -31,7 +31,7 @@ const Awards = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 
 							<button
 								type="button"
-								onClick={() => removeItem('experience', index)}
+								onClick={() => removeItem('awards', index)}
 								className="text-sm font-bold text-gray-500"
 							>
 								<svg
