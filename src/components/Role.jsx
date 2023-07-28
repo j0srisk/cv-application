@@ -4,7 +4,7 @@ const Role = ({ resumeData, handleChange }) => {
 			<h2 className="card-title">Job Position</h2>
 
 			<p className="card-text">
-				Enter the relevant information about the position you're applying to
+				Enter the relevant information about the position you are applying to.
 			</p>
 
 			{resumeData.role.map((roleItem, index) => (

@@ -1,6 +1,14 @@
+import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-const Projects = ({ resumeData, setResumeData, handleChange, removeItem }) => {
+const Projects = ({
+	resumeData,
+	setResumeData,
+	handleChange,
+	removeItem,
+	removeBullet,
+	generateText,
+}) => {
 	const addProject = () => {
 		const newProject = {
 			id: uuidv4(),
@@ -31,6 +39,20 @@ const Projects = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 			[arrayName]: updatedArray,
 		});
 	};
+
+	useEffect(() => {
+		// Iterate through all project items
+		resumeData.projects.forEach((projectItem, index) => {
+			// Check if the last bullet is not empty
+			const lastIndex = projectItem.description.length - 1;
+			const lastBullet = projectItem.description[lastIndex].bullet;
+			const isLastBulletNotEmpty = lastBullet.trim() !== '';
+
+			if (isLastBulletNotEmpty) {
+				addBullet('projects', index);
+			}
+		});
+	}, [resumeData.projects]);
 
 	return (
 		<div className="card">
@@ -145,10 +167,23 @@ const Projects = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 														subIndex,
 													)
 												}
+												onBlur={() => removeBullet('projects', index, subIndex)}
 												className="input"
 											/>
 
-											<button className="input w-fit bg-emerald-500 shadow-sm ring-0">
+											<button
+												onClick={() =>
+													generateText(
+														'projects',
+														index,
+														'description',
+														descriptionItem.bullet,
+														'bullet',
+														subIndex,
+													)
+												}
+												className="input w-fit bg-emerald-500 shadow-sm ring-0"
+											>
 												<svg
 													xmlns="http://www.w3.org/2000/svg"
 													fill="none"
@@ -163,30 +198,10 @@ const Projects = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 													/>
 												</svg>
 											</button>
-
-											{resumeData.projects[index].description.length > 1 && (
-												<button
-													onClick={() => removeItem('projects', index, 'description', subIndex)}
-													className="input w-fit"
-												>
-													<svg
-														xmlns="http://www.w3.org/2000/svg"
-														viewBox="0 0 20 20"
-														fill="gray"
-														className="h-5 w-5"
-													>
-														<path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-													</svg>
-												</button>
-											)}
 										</div>
 									</div>
 								))}
 							</div>
-
-							<button onClick={() => addBullet('projects', index)} className="input mt-4">
-								Add Detail
-							</button>
 						</div>
 					</div>
 				))}

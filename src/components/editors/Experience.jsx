@@ -1,8 +1,15 @@
+import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-const Experience = ({ resumeData, setResumeData, handleChange, removeItem, generateText }) => {
+const Experience = ({
+	resumeData,
+	setResumeData,
+	handleChange,
+	removeItem,
+	removeBullet,
+	generateText,
+}) => {
 	const addExperience = () => {
-		// Create a new empty experience item
 		const newExperience = {
 			id: uuidv4(),
 			company: '',
@@ -10,12 +17,9 @@ const Experience = ({ resumeData, setResumeData, handleChange, removeItem, gener
 			location: '',
 			startDate: '',
 			endDate: '',
-			description: [
-				{ bullet: '' }, // You can leave an empty bullet point initially
-			],
+			description: [{ bullet: '' }],
 		};
 
-		// Add the new experience to the existing experience array
 		setResumeData({
 			...resumeData,
 			experience: [...resumeData.experience, newExperience],
@@ -36,6 +40,20 @@ const Experience = ({ resumeData, setResumeData, handleChange, removeItem, gener
 			[arrayName]: updatedArray,
 		});
 	};
+
+	useEffect(() => {
+		// Iterate through all experience items
+		resumeData.experience.forEach((experienceItem, index) => {
+			// Check if the last bullet is not empty
+			const lastIndex = experienceItem.description.length - 1;
+			const lastBullet = experienceItem.description[lastIndex].bullet;
+			const isLastBulletNotEmpty = lastBullet.trim() !== '';
+
+			if (isLastBulletNotEmpty) {
+				addBullet('experience', index);
+			}
+		});
+	}, [resumeData.experience]);
 
 	return (
 		<div className="card">
@@ -166,9 +184,9 @@ const Experience = ({ resumeData, setResumeData, handleChange, removeItem, gener
 														subIndex,
 													)
 												}
+												onBlur={() => removeBullet('experience', index, subIndex)}
 												className="input"
 											/>
-
 											<button
 												onClick={() =>
 													generateText(
@@ -180,6 +198,7 @@ const Experience = ({ resumeData, setResumeData, handleChange, removeItem, gener
 														subIndex,
 													)
 												}
+												tabIndex="-1"
 												className="input w-fit bg-emerald-500 shadow-sm ring-0"
 											>
 												<svg
@@ -196,36 +215,10 @@ const Experience = ({ resumeData, setResumeData, handleChange, removeItem, gener
 													/>
 												</svg>
 											</button>
-
-											{resumeData.experience[index].description.length > 1 && (
-												<button
-													onClick={() => removeItem('experience', index, 'description', subIndex)}
-													className="input w-fit"
-												>
-													<svg
-														xmlns="http://www.w3.org/2000/svg"
-														fill="none"
-														viewBox="0 0 24 24"
-														strokeWidth={1.5}
-														stroke="gray"
-														className="h-6 w-6"
-													>
-														<path
-															strokeLinecap="round"
-															strokeLinejoin="round"
-															d="M6 18L18 6M6 6l12 12"
-														/>
-													</svg>
-												</button>
-											)}
 										</div>
 									</div>
 								))}
 							</div>
-
-							<button onClick={() => addBullet('experience', index)} className="input mt-4">
-								Add Detail
-							</button>
 						</div>
 					</div>
 				))}

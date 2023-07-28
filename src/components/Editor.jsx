@@ -46,6 +46,30 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 		});
 	};
 
+	const removeBullet = (arrayName, index, subIndex) => {
+		const updatedArray = [...resumeData[arrayName]];
+		const updatedDescription = [...updatedArray[index].description];
+		const isBulletEmpty = updatedDescription[subIndex].bullet.trim() === '';
+
+		if (isBulletEmpty) {
+			updatedDescription.splice(subIndex, 1); // Remove the empty bullet
+		}
+
+		const lastIndex = updatedDescription.length - 1;
+		const lastBullet = updatedDescription[lastIndex].bullet;
+		const isLastBulletNotEmpty = lastBullet.trim() !== '';
+
+		// Only update resumeData if the content of the last bullet has changed
+		if (isLastBulletNotEmpty !== isBulletEmpty) {
+			updatedArray[index].description = updatedDescription;
+
+			setResumeData({
+				...resumeData,
+				[arrayName]: updatedArray,
+			});
+		}
+	};
+
 	const resetToDefault = () => {
 		setResumeData(defaultResumeData);
 	};
@@ -168,6 +192,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				setResumeData={setResumeData}
 				handleChange={handleChange}
 				removeItem={removeItem}
+				removeBullet={removeBullet}
 				generateText={generateText}
 			/>
 
@@ -175,7 +200,9 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				resumeData={resumeData}
 				setResumeData={setResumeData}
 				handleChange={handleChange}
+				removeBullet={removeBullet}
 				removeItem={removeItem}
+				generateText={generateText}
 			/>
 
 			<Awards
