@@ -5,13 +5,55 @@ import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
 	const defaultResumeData = {
-		firstName: 'Joseph',
-		lastName: 'Risk',
-		email: 'j0srisk@utexas.edu',
-		phone: '(936) 647-8636',
-		social: 'LinkedIn.com/in/JosephRisk',
-		summary:
-			'Results-driven graduate with a strong academic background in software development, data analytics, and business solutions. Proficient in leveraging emerging technologies to drive business growth and optimize performance. Exceptional written and verbal communication skills facilitating effective collaboration with clients and cross-functional teams. Seeking a tech-centric role to contribute expertise to cutting-edge projects and drive digital transformation.',
+		sectionTitles: [
+			{
+				role: 'Role',
+				details: 'Details',
+				summary: 'Summary',
+				experience: 'Experience',
+				education: 'Education',
+				projects: 'Projects',
+				awards: 'Awards',
+				additionalInfo: 'Additional Info',
+			},
+		],
+		role: [
+			{
+				id: uuidv4(),
+				title: 'Staff Software Engineer',
+				company: 'Google',
+				description: `Minimum qualifications: • Bachelor's degree in Computer Science, similar technical field of study or equivalent practical experience. • Experience with coding in data structures, algorithms and software design. • Experience in Software Development and coding in a general-purpose programming language (Java, C/C++, C#, Objective C, Python, JavaScript, and Go). Preferred qualifications: • Experience as technical leader in the design and development of large software systems in a structured engineering environment. • Experience delivering complex, large scale and critical products with business impact. • Experience using cloud platforms and/or containerized application deployments. • Excellent technical leadership, project management, analytical problem solving, and troubleshooting skills. • Technically skilled in the engineering disciplines and interested in the field. About the job • Google's Software Engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. As a Staff Software Engineer, you will bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, language processing, UI design and mobile, and more.You will be an execution-focused technical leader helping shape the future of cloud computing. When working on Google Cloud, you will be building innovative cloud technology that is already powering a number of the biggest, innovative companies, customers of Google Cloud worldwide. • Google is an engineering company at heart. We hire people with a broad set of technical skills who are ready to take on some of technology's greatest challenges and make an impact on users around the world. At Google, engineers not only revolutionize search, they routinely work on scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, social to local, Google engineers are changing the world one technological achievement after another. Responsibilities • Devise innovative ideas for solving Google Cloud customer problems and translate these ideas into technical designs. • Apply the best industry standards for code health, scalability and robustness, and mentoring Software Engineers. • Lead designs for major software components, systems, and features. Design, develop, test, deploy, maintain, and improve software. • Help build a team and cultivate innovation. Drive cross-collaboration and execution of projects across multiple teams. • Develop tools, frameworks, and release processes that empower Control Developers to efficiently migrate the current control plane into a more reliable framework.`,
+				apiKey: '',
+			},
+		],
+		details: [
+			{
+				id: uuidv4(),
+				firstName: 'Joseph',
+				lastName: 'Risk',
+				description: [
+					{
+						id: uuidv4(),
+						bullet: 'j0srisk@utexas.edu',
+					},
+					{
+						id: uuidv4(),
+						bullet: '(936) 647-8636',
+					},
+					{
+						id: uuidv4(),
+						bullet: 'LinkedIn.com/in/JosephRisk',
+					},
+				],
+			},
+		],
+		summary: [
+			{
+				id: uuidv4(),
+				description:
+					'Results-driven graduate with a strong academic background in software development, data analytics, and business solutions. Proficient in leveraging emerging technologies to drive business growth and optimize performance. Exceptional written and verbal communication skills facilitating effective collaboration with clients and cross-functional teams. Seeking a tech-centric role to contribute expertise to cutting-edge projects and drive digital transformation.',
+			},
+		],
 		education: [
 			{
 				id: uuidv4(),
@@ -220,7 +262,7 @@ const App = () => {
 
 	return (
 		<div className="flex h-screen">
-			<main className="no-scrollbar flex h-fit w-full flex-col lg:h-full lg:flex-row">
+			<main className=" no-scrollbar::-webkit-scrollbar no-scrollbar flex h-fit w-full flex-col lg:h-full lg:flex-row">
 				<Editor
 					resumeData={resumeData}
 					setResumeData={setResumeData}

@@ -1,11 +1,35 @@
-const Details = ({ resumeData, setResumeData }) => {
-	const handleChange = (e) => {
-		const { name, value } = e.target;
+import { useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+const Details = ({ resumeData, setResumeData, handleChange, removeBullet }) => {
+	const addBullet = (arrayName, index) => {
+		const updatedArray = [...resumeData[arrayName]];
+		const newBullet = {
+			id: uuidv4(),
+			bullet: '',
+		};
+
+		updatedArray[index].description.push(newBullet);
+
 		setResumeData({
 			...resumeData,
-			[name]: value,
+			[arrayName]: updatedArray,
 		});
 	};
+
+	useEffect(() => {
+		// Iterate through all detail items
+		resumeData.details.forEach((detailItem, index) => {
+			// Check if the last bullet is not empty
+			const lastIndex = detailItem.description.length - 1;
+			const lastBullet = detailItem.description[lastIndex].bullet;
+			const isLastBulletNotEmpty = lastBullet.trim() !== '';
+
+			if (isLastBulletNotEmpty) {
+				addBullet('details', index);
+			}
+		});
+	}, [resumeData.details]);
 
 	return (
 		<div className="card">
@@ -16,72 +40,68 @@ const Details = ({ resumeData, setResumeData }) => {
 				a quick overview of the candidate.
 			</p>
 
-			<div className="inline-wrapper">
-				<div className="input-wrapper">
-					<label htmlFor="firstName" className="input-title">
-						First name
-					</label>
-					<input
-						type="text"
-						name="firstName"
-						value={resumeData.firstName}
-						onChange={handleChange}
-						className="input"
-					/>
+			{resumeData.details.map((detailItem, index) => (
+				<div key={detailItem.id} className="flex flex-col gap-6">
+					<div className="inline-wrapper">
+						<div className="input-wrapper">
+							<label htmlFor={`firstName${index}`} className="input-title">
+								First name
+							</label>
+							<input
+								type="text"
+								name={`firstName${index}`}
+								value={detailItem.firstName}
+								onChange={(e) => handleChange('details', index, 'firstName', e.target.value)}
+								className="input"
+							/>
+						</div>
+
+						<div className="input-wrapper">
+							<label htmlFor={`lastName${index}`} className="input-title">
+								Last name
+							</label>
+							<input
+								type="text"
+								name={`lastName${index}`}
+								value={detailItem.lastName}
+								onChange={(e) => handleChange('details', index, 'lastName', e.target.value)}
+								className="input"
+							/>
+						</div>
+					</div>
+
+					<div className="input-wrapper">
+						<label htmlFor={`description${index}`} className="input-title">
+							Contacts
+						</label>
+
+						<div className="flex flex-col gap-4">
+							{resumeData.details[index].description.map((descriptionItem, subIndex) => (
+								<div key={descriptionItem.id}>
+									<input
+										type="text"
+										name={`description${subIndex}`}
+										value={descriptionItem.bullet}
+										placeholder="Add Contact Info"
+										onChange={(e) =>
+											handleChange(
+												'details',
+												index,
+												'description',
+												e.target.value,
+												'bullet',
+												subIndex,
+											)
+										}
+										onBlur={() => removeBullet('details', index, subIndex)}
+										className="input"
+									/>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
-
-				<div className="input-wrapper">
-					<label htmlFor="lastName" className="input-title">
-						Last name
-					</label>
-					<input
-						type="text"
-						name="lastName"
-						value={resumeData.lastName}
-						onChange={handleChange}
-						className="input"
-					/>
-				</div>
-			</div>
-
-			<div className="input-wrapper">
-				<label htmlFor="email" className="input-title">
-					Email address
-				</label>
-				<input
-					type="text"
-					name="email"
-					value={resumeData.email}
-					onChange={handleChange}
-					className="input"
-				/>
-			</div>
-
-			<div>
-				<label htmlFor="phone" className="input-title">
-					Phone Number
-				</label>
-				<input
-					type="text"
-					name="phone"
-					value={resumeData.phone}
-					onChange={handleChange}
-					className="input"
-				/>
-			</div>
-
-			<div>
-				<label htmlFor="social" className="input-title">
-					Social (LinkedIn)
-				</label>
-				<input
-					type="text"
-					name="social"
-					value={resumeData.social}
-					onChange={handleChange}
-					className="input"
-				/>
-			</div>
+			))}
 		</div>
 	);
 };
