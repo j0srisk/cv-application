@@ -155,7 +155,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 
 		const headers = {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ` + resumeData.role[0].apiKey,
+			Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
 		};
 
 		axios
