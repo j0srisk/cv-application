@@ -63,7 +63,7 @@ const Editor = ({ resumeData, setResumeData, removeItem, handleChange }) => {
 							</label>
 							<input
 								type="text"
-								name={`school${index}`}
+								name={`institution${index}`}
 								value={educationItem.institution}
 								onChange={(e) => handleChange('education', index, 'institution', e.target.value)}
 								className="input"

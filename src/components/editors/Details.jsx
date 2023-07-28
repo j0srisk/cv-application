@@ -1,12 +1,4 @@
-const Details = ({ resumeData, setResumeData }) => {
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setResumeData({
-			...resumeData,
-			[name]: value,
-		});
-	};
-
+const Details = ({ resumeData, handleChange }) => {
 	return (
 		<div className="card">
 			<h2 className="card-title">Personal Details</h2>
@@ -16,72 +8,76 @@ const Details = ({ resumeData, setResumeData }) => {
 				a quick overview of the candidate.
 			</p>
 
-			<div className="inline-wrapper">
-				<div className="input-wrapper">
-					<label htmlFor="firstName" className="input-title">
-						First name
-					</label>
-					<input
-						type="text"
-						name="firstName"
-						value={resumeData.firstName}
-						onChange={handleChange}
-						className="input"
-					/>
+			{resumeData.details.map((detailItem, index) => (
+				<div key={detailItem.id} className="flex flex-col gap-6">
+					<div className="inline-wrapper">
+						<div className="input-wrapper">
+							<label htmlFor={`firstName${index}`} className="input-title">
+								First name
+							</label>
+							<input
+								type="text"
+								name={`firstName${index}`}
+								value={detailItem.firstName}
+								onChange={(e) => handleChange('details', index, 'firstName', e.target.value)}
+								className="input"
+							/>
+						</div>
+
+						<div className="input-wrapper">
+							<label htmlFor={`lastName${index}`} className="input-title">
+								Last name
+							</label>
+							<input
+								type="text"
+								name={`lastName${index}`}
+								value={detailItem.lastName}
+								onChange={(e) => handleChange('details', index, 'lastName', e.target.value)}
+								className="input"
+							/>
+						</div>
+					</div>
+
+					<div className="input-wrapper">
+						<label htmlFor={`email${index}`} className="input-title">
+							Email address
+						</label>
+						<input
+							type="text"
+							name={`email${index}`}
+							value={detailItem.email}
+							onChange={(e) => handleChange('details', index, 'email', e.target.value)}
+							className="input"
+						/>
+					</div>
+
+					<div>
+						<label htmlFor={`phone${index}`} className="input-title">
+							Phone Number
+						</label>
+						<input
+							type="text"
+							name={`phone${index}`}
+							value={detailItem.phone}
+							onChange={(e) => handleChange('details', index, 'phone', e.target.value)}
+							className="input"
+						/>
+					</div>
+
+					<div>
+						<label htmlFor={`social${index}`} className="input-title">
+							Social (LinkedIn)
+						</label>
+						<input
+							type="text"
+							name={`social${index}`}
+							value={detailItem.social}
+							onChange={(e) => handleChange('details', index, 'social', e.target.value)}
+							className="input"
+						/>
+					</div>
 				</div>
-
-				<div className="input-wrapper">
-					<label htmlFor="lastName" className="input-title">
-						Last name
-					</label>
-					<input
-						type="text"
-						name="lastName"
-						value={resumeData.lastName}
-						onChange={handleChange}
-						className="input"
-					/>
-				</div>
-			</div>
-
-			<div className="input-wrapper">
-				<label htmlFor="email" className="input-title">
-					Email address
-				</label>
-				<input
-					type="text"
-					name="email"
-					value={resumeData.email}
-					onChange={handleChange}
-					className="input"
-				/>
-			</div>
-
-			<div>
-				<label htmlFor="phone" className="input-title">
-					Phone Number
-				</label>
-				<input
-					type="text"
-					name="phone"
-					value={resumeData.phone}
-					onChange={handleChange}
-					className="input"
-				/>
-			</div>
-
-			<div>
-				<label htmlFor="social" className="input-title">
-					Social (LinkedIn)
-				</label>
-				<input
-					type="text"
-					name="social"
-					value={resumeData.social}
-					onChange={handleChange}
-					className="input"
-				/>
-			</div>
+			))}
 		</div>
 	);
 };

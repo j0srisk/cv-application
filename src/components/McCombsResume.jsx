@@ -9,23 +9,31 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 		>
 			{/*Basic Info*/}
 			<div>
-				<p className="font-calibri rendering-precision text-center text-[18pt] font-bold uppercase leading-[1.15]">
-					{resumeData.firstName} {resumeData.lastName}
-				</p>
-				<p className="font-calibri rendering-precision text-center text-[10.5pt] leading-[1.15]">
-					{resumeData.email} • {resumeData.phone} • {resumeData.social}
-				</p>
+				{resumeData.details.map((detailItem) => (
+					<div key={detailItem.id} className="">
+						<p className="font-calibri rendering-precision text-center text-[18pt] font-bold uppercase leading-[1.15]">
+							{detailItem.firstName} {detailItem.lastName}
+						</p>
+						<p className="font-calibri rendering-precision text-center text-[10.5pt] leading-[1.15]">
+							{detailItem.email} • {detailItem.phone} • {detailItem.social}
+						</p>
+					</div>
+				))}
 			</div>
 
 			{/*Summary*/}
-			{resumeData.summary && (
+			{resumeData.summary[0].description && (
 				<div>
 					<h2 className="font-calibri rendering-precision w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
 						Summary
 					</h2>
-					<p className="font-calibri rendering-legibility rendering-precision mt-[5.25pt] text-[10.5pt] leading-[1.15]">
-						{resumeData.summary}
-					</p>
+					{resumeData.summary.map((summaryItem) => (
+						<div key={summaryItem.id} className="">
+							<p className="font-calibri rendering-legibility rendering-precision mt-[5.25pt] text-[10.5pt] leading-[1.15]">
+								{summaryItem.description}
+							</p>
+						</div>
+					))}
 				</div>
 			)}
 
@@ -36,55 +44,55 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 						Experience
 					</h2>
 					<div className="mt-[5.25pt] flex flex-col gap-[10.5pt]">
-						{resumeData.experience.map((experience, index) => (
-							<div key={index} className="">
+						{resumeData.experience.map((experienceItem) => (
+							<div key={experienceItem.id} className="">
 								<div className="mb-[3.5pt] flex justify-between">
 									<div className="flex gap-1">
 										<p className="font-calibri rendering-precision text-[10.5pt] font-bold leading-[1.15]">
-											{experience.company}
+											{experienceItem.company}
 										</p>
-										{experience.company && experience.title && (
+										{experienceItem.company && experienceItem.title && (
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 												-
 											</p>
 										)}
 										<p className="font-calibri rendering-precision text-[10.5pt] italic leading-[1.15]">
-											{experience.title}
+											{experienceItem.title}
 										</p>
-										{experience.title && experience.location && (
+										{experienceItem.title && experienceItem.location && (
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 												-
 											</p>
 										)}
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{experience.location}
+											{experienceItem.location}
 										</p>
 									</div>
 
 									<div className="flex gap-1">
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{experience.startDate}
+											{experienceItem.startDate}
 										</p>
-										{experience.startDate && experience.endDate && (
+										{experienceItem.startDate && experienceItem.endDate && (
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 												{' '}
 												-{' '}
 											</p>
 										)}
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{experience.endDate}
+											{experienceItem.endDate}
 										</p>
 									</div>
 								</div>
-								{experience.description.map((description, subIndex) => (
-									<div key={subIndex} className="flex gap-1">
-										{description.bullet && (
+								{experienceItem.description.map((descriptionItem) => (
+									<div key={descriptionItem.id} className="flex gap-1">
+										{descriptionItem.bullet && (
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 												•
 											</p>
 										)}
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{description.bullet}
+											{descriptionItem.bullet}
 										</p>
 									</div>
 								))}
@@ -101,44 +109,44 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 						Education
 					</h2>
 					<div className="mt-[5.25pt] flex flex-col gap-1">
-						{resumeData.education.map((education, index) => (
-							<div key={index} className="">
+						{resumeData.education.map((educationItem) => (
+							<div key={educationItem.id} className="">
 								<div className="flex justify-between gap-3">
 									<div className="flex flex-col">
 										<p className="font-calibri rendering-precision text-[10.5pt] font-bold leading-[1.15]">
-											{education.institution}
+											{educationItem.institution}
 										</p>
 										<p className="font-calibri rendering-precision text-[10.5pt] font-bold leading-[1.15]">
-											{education.school}
+											{educationItem.school}
 										</p>
 									</div>
 									<div className="flex flex-col">
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{education.degree}
+											{educationItem.degree}
 										</p>
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{education.major}
+											{educationItem.major}
 										</p>
-										{education.gpa && (
+										{educationItem.gpa && (
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-												Final GPA: {education.gpa}
+												Final GPA: {educationItem.gpa}
 											</p>
 										)}
 									</div>
 
-									{education.endDate && (
+									{educationItem.endDate && (
 										<div className="flex gap-1">
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-												{education.startDate}
+												{educationItem.startDate}
 											</p>
-											{education.startDate && education.endDate && (
+											{educationItem.startDate && educationItem.endDate && (
 												<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 													{' '}
 													-{' '}
 												</p>
 											)}
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-												{education.endDate}
+												{educationItem.endDate}
 											</p>
 										</div>
 									)}
@@ -156,48 +164,48 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 						Academic Projects
 					</h2>
 					<div className="rendering-precision mt-[5.25pt] flex flex-col gap-[10.5pt]">
-						{resumeData.projects.map((project, index) => (
-							<div key={index} className="">
+						{resumeData.projects.map((projectItem) => (
+							<div key={projectItem.id} className="">
 								<div className="mb-[3.5pt] flex justify-between">
 									<div className="flex gap-1">
 										<p className="font-calibri rendering-precision text-[10.5pt] font-bold leading-[1.15]">
-											{project.name}
+											{projectItem.name}
 										</p>
-										{project.name && project.client && (
+										{projectItem.name && projectItem.client && (
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 												{' '}
 												-{' '}
 											</p>
 										)}
 										<p className="font-calibri rendering-precision text-[10.5pt] italic leading-[1.15]">
-											{project.client}
+											{projectItem.client}
 										</p>
 									</div>
 
 									<div className="flex gap-1">
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{project.startDate}
+											{projectItem.startDate}
 										</p>
-										{project.startDate && project.endDate && (
+										{projectItem.startDate && projectItem.endDate && (
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 												{' '}
 												-{' '}
 											</p>
 										)}
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{project.endDate}
+											{projectItem.endDate}
 										</p>
 									</div>
 								</div>
-								{project.description.map((description, subIndex) => (
-									<div key={subIndex} className="flex gap-1">
-										{description.bullet && (
+								{projectItem.description.map((descriptionItem) => (
+									<div key={descriptionItem.id} className="flex gap-1">
+										{descriptionItem.bullet && (
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 												•
 											</p>
 										)}
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{description.bullet}
+											{descriptionItem.bullet}
 										</p>
 									</div>
 								))}
@@ -214,19 +222,19 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 						Awards
 					</h2>
 					<div className="mt-[5.25pt]">
-						{resumeData.awards.map((award, index) => (
-							<div key={index}>
+						{resumeData.awards.map((awardItem) => (
+							<div key={awardItem.id}>
 								<div className="flex justify-between">
 									<div className="flex gap-1">
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 											•
 										</p>
 										<p className="font-calibri rendering-precision text-[10.5pt] font-bold leading-[1.15]">
-											{award.name}
+											{awardItem.name}
 										</p>
 									</div>
 									<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-										{award.date}
+										{awardItem.date}
 									</p>
 								</div>
 							</div>
@@ -242,14 +250,14 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 						Additional Information
 					</h2>
 					<div className="mt-[5.25pt]">
-						{resumeData.additionalInfo.map((info, index) => (
-							<div key={index}>
+						{resumeData.additionalInfo.map((additionalInfoItem) => (
+							<div key={additionalInfoItem.id}>
 								<div className="flex gap-1">
 									<p className="font-calibri rendering-precision text-[10.5pt] font-bold leading-[1.15]">
-										{info.name}:
+										{additionalInfoItem.name}:
 									</p>
 									<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-										{info.description}
+										{additionalInfoItem.description}
 									</p>
 								</div>
 							</div>

@@ -101,7 +101,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				},
 				{
 					role: 'user',
-					content: 'Here is the role I am applying to' + resumeData.jobDescription,
+					content: 'Here is the role I am applying to' + resumeData.role[0].description,
 				},
 				{
 					role: 'user',
@@ -124,7 +124,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 
 		const headers = {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ` + resumeData.apiKey,
+			Authorization: `Bearer ` + resumeData.role[0].apiKey,
 		};
 
 		axios
@@ -133,7 +133,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				console.log(response);
 				console.log(response.config.data);
 				console.log(
-					'Price: ' +
+					'Price: $' +
 						(response.data.usage.completion_tokens * 0.000002 +
 							response.data.usage.prompt_tokens * 0.0000015),
 				);
@@ -150,11 +150,11 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 
 	return (
 		<div className="no-scrollbar flex flex-1 flex-col gap-8 overflow-y-scroll scroll-smooth p-5">
-			<Role resumeData={resumeData} setResumeData={setResumeData} />
+			<Role resumeData={resumeData} handleChange={handleChange} />
 
-			<Details resumeData={resumeData} setResumeData={setResumeData} />
+			<Details resumeData={resumeData} handleChange={handleChange} />
 
-			<Summary resumeData={resumeData} setResumeData={setResumeData} />
+			<Summary resumeData={resumeData} handleChange={handleChange} generateText={generateText} />
 
 			<Education
 				resumeData={resumeData}

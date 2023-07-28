@@ -5,17 +5,32 @@ import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
 	const defaultResumeData = {
-		jobTitle: 'Software Developer',
-		companyName: 'Google',
-		jobDescription: '',
-		apiKey: '',
-		firstName: 'Joseph',
-		lastName: 'Risk',
-		email: 'j0srisk@utexas.edu',
-		phone: '(936) 647-8636',
-		social: 'LinkedIn.com/in/JosephRisk',
-		summary:
-			'Results-driven graduate with a strong academic background in software development, data analytics, and business solutions. Proficient in leveraging emerging technologies to drive business growth and optimize performance. Exceptional written and verbal communication skills facilitating effective collaboration with clients and cross-functional teams. Seeking a tech-centric role to contribute expertise to cutting-edge projects and drive digital transformation.',
+		role: [
+			{
+				id: uuidv4(),
+				title: 'Software Developer',
+				company: 'Google',
+				description: 'Develop software',
+				apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+			},
+		],
+		details: [
+			{
+				id: uuidv4(),
+				firstName: 'Joseph',
+				lastName: 'Risk',
+				email: 'j0srisk@utexas.edu',
+				phone: '(936) 647-8636',
+				social: 'LinkedIn.com/in/JosephRisk',
+			},
+		],
+		summary: [
+			{
+				id: uuidv4(),
+				description:
+					'Results-driven graduate with a strong academic background in software development, data analytics, and business solutions. Proficient in leveraging emerging technologies to drive business growth and optimize performance. Exceptional written and verbal communication skills facilitating effective collaboration with clients and cross-functional teams. Seeking a tech-centric role to contribute expertise to cutting-edge projects and drive digital transformation.',
+			},
+		],
 		education: [
 			{
 				id: uuidv4(),
