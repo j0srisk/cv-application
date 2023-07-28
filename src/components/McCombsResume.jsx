@@ -103,8 +103,8 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 					<div className="mt-[5.25pt] flex flex-col gap-1">
 						{resumeData.education.map((education, index) => (
 							<div key={index} className="">
-								<div className="flex gap-3">
-									<div className="flex w-1/3 flex-col">
+								<div className="flex justify-between gap-3">
+									<div className="flex flex-col">
 										<p className="font-calibri rendering-precision text-[10.5pt] font-bold leading-[1.15]">
 											{education.institution}
 										</p>
@@ -112,7 +112,7 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 											{education.school}
 										</p>
 									</div>
-									<div className="flex flex-1 flex-col">
+									<div className="flex flex-col">
 										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
 											{education.degree}
 										</p>
@@ -126,20 +126,22 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 										)}
 									</div>
 
-									<div className="flex gap-1">
-										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{education.startDate}
-										</p>
-										{education.startDate && education.endDate && (
+									{education.endDate && (
+										<div className="flex gap-1">
 											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-												{' '}
-												-{' '}
+												{education.startDate}
 											</p>
-										)}
-										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
-											{education.endDate}
-										</p>
-									</div>
+											{education.startDate && education.endDate && (
+												<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
+													{' '}
+													-{' '}
+												</p>
+											)}
+											<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
+												{education.endDate}
+											</p>
+										</div>
+									)}
 								</div>
 							</div>
 						))}

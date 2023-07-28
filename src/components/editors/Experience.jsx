@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const Experience = ({ resumeData, setResumeData, handleChange, removeItem }) => {
+const Experience = ({ resumeData, setResumeData, handleChange, removeItem, generateText }) => {
 	const addExperience = () => {
 		// Create a new empty experience item
 		const newExperience = {
@@ -169,7 +169,19 @@ const Experience = ({ resumeData, setResumeData, handleChange, removeItem }) => 
 												className="input"
 											/>
 
-											<button className="input w-fit bg-emerald-500 shadow-sm ring-0">
+											<button
+												onClick={() =>
+													generateText(
+														'experience',
+														index,
+														'description',
+														descriptionItem.bullet,
+														'bullet',
+														subIndex,
+													)
+												}
+												className="input w-fit bg-emerald-500 shadow-sm ring-0"
+											>
 												<svg
 													xmlns="http://www.w3.org/2000/svg"
 													fill="none"

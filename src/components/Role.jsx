@@ -1,11 +1,14 @@
 const Role = ({ resumeData, setResumeData }) => {
 	const handleChange = (e) => {
+		console.log(e.target);
 		const { name, value } = e.target;
 		setResumeData({
 			...resumeData,
 			[name]: value,
 		});
 	};
+
+	console.log(resumeData.apiKey);
 
 	return (
 		<div className="card">
@@ -53,6 +56,21 @@ const Role = ({ resumeData, setResumeData }) => {
 					onChange={handleChange}
 					className="input"
 				/>
+			</div>
+
+			<div className="inline-wrapper">
+				<div className="input-wrapper">
+					<label htmlFor="apiKey" className="input-title">
+						API Key
+					</label>
+					<input
+						type="text"
+						name="apiKey"
+						value={resumeData.apiKey}
+						onChange={handleChange}
+						className="input"
+					/>
+				</div>
 			</div>
 		</div>
 	);
