@@ -5,11 +5,6 @@ exports.handler = async function (event, context) {
 		const requestBody = JSON.parse(event.body);
 		const topic = requestBody.topic;
 
-		return {
-			statusCode: 200,
-			body: JSON.stringify({ topic: topic }),
-		};
-
 		// Your API endpoint URL
 		const apiUrl = 'https://api.openai.com/v1/engines/gpt-3.5-turbo/completions';
 
@@ -28,6 +23,11 @@ exports.handler = async function (event, context) {
 			frequency_penalty: 0,
 			presence_penalty: 0,
 		};
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify({process.env.VITE_OPENAI_API_KEY})
+        }
 
 		// Making the API request using axios
 		const response = await axios.post(apiUrl, requestData, {
