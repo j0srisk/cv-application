@@ -14,9 +14,22 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 						<p className="font-calibri rendering-precision text-center text-[18pt] font-bold uppercase leading-[1.15]">
 							{detailItem.firstName} {detailItem.lastName}
 						</p>
-						<p className="font-calibri rendering-precision text-center text-[10.5pt] leading-[1.15]">
-							{detailItem.email} • {detailItem.phone} • {detailItem.social}
-						</p>
+						<div className="flex justify-center">
+							{detailItem.description.map((descriptionItem, subIndex) => (
+								<div key={descriptionItem.id} className="">
+									<div className="flex gap-1">
+										{subIndex > 0 && descriptionItem.bullet != '' && (
+											<p className="font-calibri rendering-precision pl-1 text-[10.5pt] leading-[1.15]">
+												•
+											</p>
+										)}
+										<p className="font-calibri rendering-precision text-[10.5pt] leading-[1.15]">
+											{descriptionItem.bullet}
+										</p>
+									</div>
+								</div>
+							))}
+						</div>
 					</div>
 				))}
 			</div>

@@ -1,4 +1,36 @@
-const Details = ({ resumeData, handleChange }) => {
+import { useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+const Details = ({ resumeData, setResumeData, handleChange, removeBullet }) => {
+	const addBullet = (arrayName, index) => {
+		const updatedArray = [...resumeData[arrayName]];
+		const newBullet = {
+			id: uuidv4(),
+			bullet: '',
+		};
+
+		updatedArray[index].description.push(newBullet);
+
+		setResumeData({
+			...resumeData,
+			[arrayName]: updatedArray,
+		});
+	};
+
+	useEffect(() => {
+		// Iterate through all detail items
+		resumeData.details.forEach((detailItem, index) => {
+			// Check if the last bullet is not empty
+			const lastIndex = detailItem.description.length - 1;
+			const lastBullet = detailItem.description[lastIndex].bullet;
+			const isLastBulletNotEmpty = lastBullet.trim() !== '';
+
+			if (isLastBulletNotEmpty) {
+				addBullet('details', index);
+			}
+		});
+	}, [resumeData.details]);
+
 	return (
 		<div className="card">
 			<h2 className="card-title">Personal Details</h2>
@@ -39,42 +71,34 @@ const Details = ({ resumeData, handleChange }) => {
 					</div>
 
 					<div className="input-wrapper">
-						<label htmlFor={`email${index}`} className="input-title">
-							Email Address
+						<label htmlFor={`description${index}`} className="input-title">
+							Contacts
 						</label>
-						<input
-							type="text"
-							name={`email${index}`}
-							value={detailItem.email}
-							onChange={(e) => handleChange('details', index, 'email', e.target.value)}
-							className="input"
-						/>
-					</div>
 
-					<div>
-						<label htmlFor={`phone${index}`} className="input-title">
-							Phone Number
-						</label>
-						<input
-							type="text"
-							name={`phone${index}`}
-							value={detailItem.phone}
-							onChange={(e) => handleChange('details', index, 'phone', e.target.value)}
-							className="input"
-						/>
-					</div>
-
-					<div>
-						<label htmlFor={`social${index}`} className="input-title">
-							Social (LinkedIn)
-						</label>
-						<input
-							type="text"
-							name={`social${index}`}
-							value={detailItem.social}
-							onChange={(e) => handleChange('details', index, 'social', e.target.value)}
-							className="input"
-						/>
+						<div className="flex flex-col gap-4">
+							{resumeData.details[index].description.map((descriptionItem, subIndex) => (
+								<div key={descriptionItem.id}>
+									<input
+										type="text"
+										name={`description${subIndex}`}
+										value={descriptionItem.bullet}
+										placeholder="Add Contact Info"
+										onChange={(e) =>
+											handleChange(
+												'details',
+												index,
+												'description',
+												e.target.value,
+												'bullet',
+												subIndex,
+											)
+										}
+										onBlur={() => removeBullet('details', index, subIndex)}
+										className="input"
+									/>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 			))}

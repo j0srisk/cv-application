@@ -184,7 +184,12 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 		<div className="no-scrollbar no-scrollbar::-webkit-scrollbar flex flex-1 flex-col gap-8 overflow-y-scroll scroll-smooth p-5">
 			<Role resumeData={resumeData} handleChange={handleChange} />
 
-			<Details resumeData={resumeData} handleChange={handleChange} />
+			<Details
+				resumeData={resumeData}
+				setResumeData={setResumeData}
+				handleChange={handleChange}
+				removeBullet={removeBullet}
+			/>
 
 			<Summary resumeData={resumeData} handleChange={handleChange} generateText={generateText} />
 

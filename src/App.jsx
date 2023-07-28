@@ -31,9 +31,20 @@ const App = () => {
 				id: uuidv4(),
 				firstName: 'Joseph',
 				lastName: 'Risk',
-				email: 'j0srisk@utexas.edu',
-				phone: '(936) 647-8636',
-				social: 'LinkedIn.com/in/JosephRisk',
+				description: [
+					{
+						id: uuidv4(),
+						bullet: 'j0srisk@utexas.edu',
+					},
+					{
+						id: uuidv4(),
+						bullet: '(936) 647-8636',
+					},
+					{
+						id: uuidv4(),
+						bullet: 'LinkedIn.com/in/JosephRisk',
+					},
+				],
 			},
 		],
 		summary: [

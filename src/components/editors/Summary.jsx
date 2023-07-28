@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const Summary = ({ resumeData, handleChange, generateText }) => {
-	const [textareaHeight, setTextareaHeight] = useState(0);
+	const [setTextareaHeight] = useState(0);
 
 	const handleTextareaInput = (e) => {
 		e.target.style.height = 'auto'; // Reset the height to recalculate scroll height
