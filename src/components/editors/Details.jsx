@@ -40,7 +40,7 @@ const Details = ({ resumeData, handleChange }) => {
 
 					<div className="input-wrapper">
 						<label htmlFor={`email${index}`} className="input-title">
-							Email address
+							Email Address
 						</label>
 						<input
 							type="text"

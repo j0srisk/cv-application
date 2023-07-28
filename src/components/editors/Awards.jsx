@@ -16,7 +16,11 @@ const Awards = ({ resumeData, setResumeData, handleChange, removeItem }) => {
 
 	return (
 		<div className="card">
-			<h2 className="card-title">Honors & Awards</h2>
+			<input
+				value={resumeData.sectionTitles[0].awards}
+				onChange={(e) => handleChange('sectionTitles', 0, 'awards', e.target.value)}
+				className="card-title"
+			></input>
 
 			<p className="card-text">
 				Include any honors or awards you have received that are relevant to the job you are applying

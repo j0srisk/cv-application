@@ -16,7 +16,11 @@ const AdditionalInfo = ({ resumeData, setResumeData, handleChange, removeItem })
 
 	return (
 		<div className="card">
-			<h2 className="card-title">Additional Information</h2>
+			<input
+				value={resumeData.sectionTitles[0].additionalInfo}
+				onChange={(e) => handleChange('sectionTitles', 0, 'additionalInfo', e.target.value)}
+				className="card-title"
+			></input>
 
 			<p className="card-text">
 				Include any additional information that you think is relevant to the job you are applying
@@ -34,6 +38,7 @@ const AdditionalInfo = ({ resumeData, setResumeData, handleChange, removeItem })
 
 							<button
 								type="button"
+								tabIndex={-1}
 								onClick={() => removeItem('additionalInfo', index)}
 								className="text-sm font-bold text-gray-500"
 							>

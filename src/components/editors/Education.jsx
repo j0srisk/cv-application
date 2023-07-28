@@ -20,7 +20,11 @@ const Editor = ({ resumeData, setResumeData, removeItem, handleChange }) => {
 
 	return (
 		<div className="card">
-			<h2 className="card-title">Education</h2>
+			<input
+				value={resumeData.sectionTitles[0].education}
+				onChange={(e) => handleChange('sectionTitles', 0, 'education', e.target.value)}
+				className="card-title"
+			></input>
 
 			<p className="card-text">
 				Add the name of your school, where it is located, what degree you obtained, your field of
@@ -38,6 +42,7 @@ const Editor = ({ resumeData, setResumeData, removeItem, handleChange }) => {
 
 							<button
 								type="button"
+								tabIndex={-1}
 								onClick={() => removeItem('education', index)}
 								className="text-sm font-bold text-gray-500"
 							>

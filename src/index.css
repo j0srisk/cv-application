@@ -49,7 +49,7 @@
 
 @layer components {
 	.card-title {
-		@apply text-3xl font-bold leading-7 text-gray-900;
+		@apply w-fit text-3xl font-bold leading-7 text-gray-900 focus:outline-none;
 	}
 }
 
@@ -91,6 +91,6 @@
 
 @layer components {
 	.input {
-		@apply block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+		@apply block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
 	}
 }

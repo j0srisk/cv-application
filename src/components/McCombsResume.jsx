@@ -25,7 +25,7 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 			{resumeData.summary[0].description && (
 				<div>
 					<h2 className="font-calibri rendering-precision w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
-						Summary
+						{resumeData.sectionTitles[0].summary}
 					</h2>
 					{resumeData.summary.map((summaryItem) => (
 						<div key={summaryItem.id} className="">
@@ -41,7 +41,7 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 			{resumeData.experience.length > 0 && (
 				<div>
 					<h2 className="font-calibri rendering-precision w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
-						Experience
+						{resumeData.sectionTitles[0].experience}
 					</h2>
 					<div className="mt-[5.25pt] flex flex-col gap-[10.5pt]">
 						{resumeData.experience.map((experienceItem) => (
@@ -106,7 +106,7 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 			{resumeData.education.length > 0 && (
 				<div>
 					<h2 className="font-calibri rendering-precision w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
-						Education
+						{resumeData.sectionTitles[0].education}
 					</h2>
 					<div className="mt-[5.25pt] flex flex-col gap-1">
 						{resumeData.education.map((educationItem) => (
@@ -161,7 +161,7 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 			{resumeData.projects.length > 0 && (
 				<div>
 					<h2 className="font-calibri rendering-precision w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
-						Academic Projects
+						{resumeData.sectionTitles[0].projects}
 					</h2>
 					<div className="rendering-precision mt-[5.25pt] flex flex-col gap-[10.5pt]">
 						{resumeData.projects.map((projectItem) => (
@@ -219,7 +219,7 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 			{resumeData.awards.length > 0 && (
 				<div>
 					<h2 className="font-calibri rendering-precision w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
-						Awards
+						{resumeData.sectionTitles[0].awards}
 					</h2>
 					<div className="mt-[5.25pt]">
 						{resumeData.awards.map((awardItem) => (
@@ -247,7 +247,7 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 			{resumeData.additionalInfo.length > 0 && (
 				<div>
 					<h2 className="font-calibri rendering-precision w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
-						Additional Information
+						{resumeData.sectionTitles[0].additionalInfo}
 					</h2>
 					<div className="mt-[5.25pt]">
 						{resumeData.additionalInfo.map((additionalInfoItem) => (

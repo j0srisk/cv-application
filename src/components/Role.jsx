@@ -45,7 +45,7 @@ const Role = ({ resumeData, handleChange }) => {
 							rows="5"
 							value={roleItem.description}
 							onChange={(e) => handleChange('role', index, 'description', e.target.value)}
-							className="input"
+							className="input no-scrollbar::-webkit-scrollbar no-scrollbar"
 						/>
 					</div>
 

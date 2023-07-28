@@ -17,7 +17,6 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 		if (subArrayName !== null && subIndex !== null) {
 			// Update a sub-item in the specified sub-array
 			updatedArray[index][field][subIndex][subArrayName] = value;
-			console.log(updatedArray);
 		} else {
 			// Update a top-level field
 			updatedArray[index][field] = value;
@@ -115,7 +114,15 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 
 	const resumeContent = generateResumeContent(resumeData);
 
-	const generateText = (arrayName, index, field, value, subArrayName = null, subIndex = null) => {
+	const generateText = (
+		buttonRef,
+		arrayName,
+		index,
+		field,
+		value,
+		subArrayName = null,
+		subIndex = null,
+	) => {
 		const requestData = {
 			model: 'gpt-3.5-turbo',
 			messages: [
@@ -154,8 +161,6 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 		axios
 			.post('https://api.openai.com/v1/chat/completions', requestData, { headers })
 			.then((response) => {
-				console.log(response);
-				console.log(response.config.data);
 				console.log(
 					'Price: $' +
 						(response.data.usage.completion_tokens * 0.000002 +
@@ -163,29 +168,25 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				);
 				const generatedText = response.data.choices[0]?.message?.content;
 
-				console.log(generatedText);
+				console.log('Generated Text: ' + generatedText);
 
 				handleChange(arrayName, index, field, generatedText, subArrayName, subIndex);
+
+				buttonRef.blur();
 			})
 			.catch((error) => {
 				console.log(error);
+				buttonRef.blur();
 			});
 	};
 
 	return (
-		<div className="no-scrollbar flex flex-1 flex-col gap-8 overflow-y-scroll scroll-smooth p-5">
+		<div className="no-scrollbar no-scrollbar::-webkit-scrollbar flex flex-1 flex-col gap-8 overflow-y-scroll scroll-smooth p-5">
 			<Role resumeData={resumeData} handleChange={handleChange} />
 
 			<Details resumeData={resumeData} handleChange={handleChange} />
 
 			<Summary resumeData={resumeData} handleChange={handleChange} generateText={generateText} />
-
-			<Education
-				resumeData={resumeData}
-				setResumeData={setResumeData}
-				handleChange={handleChange}
-				removeItem={removeItem}
-			/>
 
 			<Experience
 				resumeData={resumeData}
@@ -194,6 +195,13 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				removeItem={removeItem}
 				removeBullet={removeBullet}
 				generateText={generateText}
+			/>
+
+			<Education
+				resumeData={resumeData}
+				setResumeData={setResumeData}
+				handleChange={handleChange}
+				removeItem={removeItem}
 			/>
 
 			<Projects
@@ -222,10 +230,28 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 			<div className="flex justify-end gap-4">
 				<Footer />
 				<button
-					className="block w-fit rounded-md border-0 bg-indigo-600 px-4 font-bold text-white shadow-sm"
+					className="group flex w-fit items-center gap-2 rounded-md border-0 bg-indigo-600 px-4 font-bold text-white shadow-sm"
 					onClick={resetToDefault}
 				>
-					Reset to Default
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						strokeWidth={1.5}
+						className="h-6 w-6 stroke-white"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
+						/>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
+						/>
+					</svg>
+					Reset Data
 				</button>
 			</div>
 		</div>
