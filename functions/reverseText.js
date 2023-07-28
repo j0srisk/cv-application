@@ -1,8 +1,6 @@
 // functions/reverseText.js
 exports.handler = async function (event, context) {
 	try {
-		console.log(event);
-		console.log(context);
 		// Ensure the request method is POST
 		if (event.httpMethod !== 'POST') {
 			return {
