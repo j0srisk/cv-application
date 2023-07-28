@@ -5,6 +5,11 @@ exports.handler = async function (event, context) {
 		const requestBody = JSON.parse(event.body);
 		const topic = requestBody.topic;
 
+		return {
+			statusCode: 200,
+			body: JSON.stringify({ topic: topic }),
+		};
+
 		// Your API endpoint URL
 		const apiUrl = 'https://api.openai.com/v1/engines/gpt-3.5-turbo/completions';
 
