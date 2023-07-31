@@ -7,7 +7,7 @@ const Experience = ({
 	handleChange,
 	removeItem,
 	removeBullet,
-	generateText,
+	handleGenerateText,
 }) => {
 	const addExperience = () => {
 		const newExperience = {
@@ -194,7 +194,7 @@ const Experience = ({
 											/>
 											<button
 												onClick={(e) =>
-													generateText(
+													handleGenerateText(
 														e.currentTarget,
 														'experience',
 														index,

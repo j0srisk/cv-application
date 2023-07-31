@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Summary = ({ resumeData, handleChange, generateText }) => {
+const Summary = ({ resumeData, handleChange, handleGenerateText }) => {
 	const [setTextareaHeight] = useState(0);
 
 	const handleTextareaInput = (e) => {
@@ -41,7 +41,7 @@ const Summary = ({ resumeData, handleChange, generateText }) => {
 							<button
 								tabIndex={-1}
 								onClick={(e) =>
-									generateText(
+									handleGenerateText(
 										e.currentTarget,
 										'summary',
 										index,
