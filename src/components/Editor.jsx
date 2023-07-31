@@ -133,7 +133,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 		};
 
 		axios
-			.post('http://localhost:8888/.netlify/functions/generateText', requestData)
+			.post('https://cv-application.josephrisk.com/.netlify/functions/generateText', requestData)
 			.then((response) => {
 				const responseData = response.data;
 				const generatedText = responseData.choices[0]?.message?.content;
