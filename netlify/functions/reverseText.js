@@ -1,5 +1,5 @@
 // functions/reverseText.js
-exports.handler = async function (event, context) {
+export async function handler(event, context) {
 	try {
 		// Ensure the request method is POST
 		if (event.httpMethod !== 'POST') {
@@ -13,7 +13,7 @@ exports.handler = async function (event, context) {
 		const requestBody = JSON.parse(event.body);
 
 		// Check if the 'text' property exists in the request body
-		if (!requestBody.text) {
+		if (!requestBody.value) {
 			return {
 				statusCode: 400,
 				body: JSON.stringify({ message: 'Text is missing in the request body' }),
@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
 		}
 
 		// Reverse the input text
-		const reversedText = requestBody.text.split('').reverse().join('');
+		const reversedText = requestBody.value.split('').reverse().join('');
 
 		// Return the reversed text as a response
 		return {
@@ -34,4 +34,4 @@ exports.handler = async function (event, context) {
 			body: JSON.stringify({ message: 'Internal Server Error' }),
 		};
 	}
-};
+}
