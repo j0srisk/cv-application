@@ -48,21 +48,6 @@ const Role = ({ resumeData, handleChange }) => {
 							className="input no-scrollbar::-webkit-scrollbar no-scrollbar"
 						/>
 					</div>
-
-					<div className="inline-wrapper">
-						<div className="input-wrapper">
-							<label htmlFor={`apiKey${index}`} className="input-title">
-								OpenAI API Key
-							</label>
-							<input
-								type="text"
-								name={`apiKey${index}`}
-								value={roleItem.apiKey}
-								onChange={(e) => handleChange('role', index, 'apiKey', e.target.value)}
-								className="input"
-							/>
-						</div>
-					</div>
 				</div>
 			))}
 		</div>

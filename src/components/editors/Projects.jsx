@@ -7,7 +7,7 @@ const Projects = ({
 	handleChange,
 	removeItem,
 	removeBullet,
-	generateText,
+	handleGenerateText,
 }) => {
 	const addProject = () => {
 		const newProject = {
@@ -179,7 +179,7 @@ const Projects = ({
 
 											<button
 												onClick={(e) =>
-													generateText(
+													handleGenerateText(
 														e.currentTarget,
 														'projects',
 														index,

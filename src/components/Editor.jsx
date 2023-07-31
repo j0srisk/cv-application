@@ -74,7 +74,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 	};
 
 	function generateResumeContent(resumeData) {
-		const summaryContent = 'Summary: ' + resumeData.summary;
+		const summaryContent = 'Summary: ' + resumeData.summary[0].description;
 
 		const educationContent = resumeData.education
 			.map(
@@ -114,7 +114,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 
 	const resumeContent = generateResumeContent(resumeData);
 
-	const generateText = (
+	const handleGenerateText = (
 		buttonRef,
 		arrayName,
 		index,
@@ -123,52 +123,27 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 		subArrayName = null,
 		subIndex = null,
 	) => {
-		const requestData = {
-			model: 'gpt-3.5-turbo',
-			messages: [
-				{
-					role: 'system',
-					content: 'Here is my resume: {' + resumeContent + '}',
-				},
-				{
-					role: 'user',
-					content: 'Here is the role I am applying to' + resumeData.role[0].description,
-				},
-				{
-					role: 'user',
-					content:
-						'Rewrite this ' +
-						field +
-						' {' +
-						value +
-						'} in no more than {' +
-						value.length +
-						'} characters tailored towards this specific position. Include any relevant skills, experience, or certifications from my resume. Do not specifically mention the company or the role itself. Do not add hashtags or links.',
-				},
-			],
-			temperature: 1,
-			max_tokens: 256,
-			top_p: 1,
-			frequency_penalty: 0,
-			presence_penalty: 0,
-		};
+		console.log('Provided Text: ' + value);
 
-		const headers = {
-			'Content-Type': 'application/json',
-			Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+		const requestData = {
+			resumeData: resumeContent,
+			roleDescription: resumeData.role[0].description,
+			field: field,
+			value: value,
 		};
 
 		axios
-			.post('https://api.openai.com/v1/chat/completions', requestData, { headers })
+			.post('https://cv-application.josephrisk.com/.netlify/functions/generateText', requestData)
 			.then((response) => {
+				const responseData = response.data;
+				const generatedText = responseData.choices[0]?.message?.content;
+				console.log('Generated Text: ' + generatedText);
+
 				console.log(
 					'Price: $' +
-						(response.data.usage.completion_tokens * 0.000002 +
-							response.data.usage.prompt_tokens * 0.0000015),
+						(responseData.usage.completion_tokens * 0.000002 +
+							responseData.usage.prompt_tokens * 0.0000015),
 				);
-				const generatedText = response.data.choices[0]?.message?.content;
-
-				console.log('Generated Text: ' + generatedText);
 
 				handleChange(arrayName, index, field, generatedText, subArrayName, subIndex);
 
@@ -176,6 +151,8 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 			})
 			.catch((error) => {
 				console.log(error);
+				alert('An error occurred: ' + error.message);
+
 				buttonRef.blur();
 			});
 	};
@@ -191,7 +168,11 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				removeBullet={removeBullet}
 			/>
 
-			<Summary resumeData={resumeData} handleChange={handleChange} generateText={generateText} />
+			<Summary
+				resumeData={resumeData}
+				handleChange={handleChange}
+				handleGenerateText={handleGenerateText}
+			/>
 
 			<Experience
 				resumeData={resumeData}
@@ -199,7 +180,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				handleChange={handleChange}
 				removeItem={removeItem}
 				removeBullet={removeBullet}
-				generateText={generateText}
+				handleGenerateText={handleGenerateText}
 			/>
 
 			<Education
@@ -215,7 +196,7 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				handleChange={handleChange}
 				removeBullet={removeBullet}
 				removeItem={removeItem}
-				generateText={generateText}
+				handleGenerateText={handleGenerateText}
 			/>
 
 			<Awards
