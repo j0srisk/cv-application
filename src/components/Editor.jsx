@@ -152,6 +152,8 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 			.catch((error) => {
 				console.log(error);
 				alert('An error occurred: ' + error.message);
+
+				buttonRef.blur();
 			});
 	};
 
