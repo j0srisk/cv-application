@@ -38,7 +38,7 @@ const Previewer = ({ resumeData }) => {
 	const componentRef = useRef();
 	const print = useReactToPrint({
 		content: () => componentRef.current,
-		documentTitle: `${resumeData.firstName}${resumeData.lastName}Resume`,
+		documentTitle: `${resumeData.details[0].firstName}${resumeData.details[0].lastName}Resume`,
 	});
 
 	//set the scale of the resume based on the window size
