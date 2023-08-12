@@ -35,6 +35,10 @@
 		.rendering-precision {
 			text-rendering: geometricPrecision;
 		}
+
+		.ligatures-none {
+			font-variant-ligatures: none;
+		}
 	}
 }
 

@@ -36,6 +36,7 @@ const Previewer = ({ resumeData }) => {
 	}, []);
 
 	const componentRef = useRef();
+
 	const print = useReactToPrint({
 		content: () => componentRef.current,
 		documentTitle: `${resumeData.details[0].firstName}${resumeData.details[0].lastName}Resume`,
