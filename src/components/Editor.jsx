@@ -174,6 +174,13 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				handleGenerateText={handleGenerateText}
 			/>
 
+			<Education
+				resumeData={resumeData}
+				setResumeData={setResumeData}
+				handleChange={handleChange}
+				removeItem={removeItem}
+			/>
+
 			<Experience
 				resumeData={resumeData}
 				setResumeData={setResumeData}
@@ -181,13 +188,6 @@ const Editor = ({ resumeData, setResumeData, defaultResumeData }) => {
 				removeItem={removeItem}
 				removeBullet={removeBullet}
 				handleGenerateText={handleGenerateText}
-			/>
-
-			<Education
-				resumeData={resumeData}
-				setResumeData={setResumeData}
-				handleChange={handleChange}
-				removeItem={removeItem}
 			/>
 
 			<Projects

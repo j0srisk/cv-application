@@ -21,9 +21,9 @@ const App = () => {
 		role: [
 			{
 				id: uuidv4(),
-				title: 'Staff Software Engineer',
-				company: 'Google',
-				description: `Minimum qualifications: • Bachelor's degree in Computer Science, similar technical field of study or equivalent practical experience. • Experience with coding in data structures, algorithms and software design. • Experience in Software Development and coding in a general-purpose programming language (Java, C/C++, C#, Objective C, Python, JavaScript, and Go). Preferred qualifications: • Experience as technical leader in the design and development of large software systems in a structured engineering environment. • Experience delivering complex, large scale and critical products with business impact. • Experience using cloud platforms and/or containerized application deployments. • Excellent technical leadership, project management, analytical problem solving, and troubleshooting skills. • Technically skilled in the engineering disciplines and interested in the field. About the job • Google's Software Engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. As a Staff Software Engineer, you will bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, language processing, UI design and mobile, and more.You will be an execution-focused technical leader helping shape the future of cloud computing. When working on Google Cloud, you will be building innovative cloud technology that is already powering a number of the biggest, innovative companies, customers of Google Cloud worldwide. • Google is an engineering company at heart. We hire people with a broad set of technical skills who are ready to take on some of technology's greatest challenges and make an impact on users around the world. At Google, engineers not only revolutionize search, they routinely work on scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From Google Ads to Chrome, Android to YouTube, social to local, Google engineers are changing the world one technological achievement after another. Responsibilities • Devise innovative ideas for solving Google Cloud customer problems and translate these ideas into technical designs. • Apply the best industry standards for code health, scalability and robustness, and mentoring Software Engineers. • Lead designs for major software components, systems, and features. Design, develop, test, deploy, maintain, and improve software. • Help build a team and cultivate innovation. Drive cross-collaboration and execution of projects across multiple teams. • Develop tools, frameworks, and release processes that empower Control Developers to efficiently migrate the current control plane into a more reliable framework.`,
+				title: '',
+				company: '',
+				description: ``,
 			},
 		],
 		details: [
@@ -38,11 +38,7 @@ const App = () => {
 					},
 					{
 						id: uuidv4(),
-						bullet: '(936) 647-8636',
-					},
-					{
-						id: uuidv4(),
-						bullet: 'LinkedIn.com/in/JosephRisk',
+						bullet: 'josephrisk.com',
 					},
 				],
 			},
@@ -50,8 +46,7 @@ const App = () => {
 		summary: [
 			{
 				id: uuidv4(),
-				description:
-					'Results-driven graduate with a strong academic background in software development, data analytics, and business solutions. Proficient in leveraging emerging technologies to drive business growth and optimize performance. Exceptional written and verbal communication skills facilitating effective collaboration with clients and cross-functional teams. Seeking a tech-centric role to contribute expertise to cutting-edge projects and drive digital transformation.',
+				description: '',
 			},
 		],
 		education: [
@@ -70,7 +65,7 @@ const App = () => {
 			{
 				id: uuidv4(),
 				company: 'Neutrino Web Development',
-				title: 'Freelancer/Founder',
+				title: 'Freelance Web Developer',
 				location: 'Austin, TX',
 				startDate: 'June 2017',
 				endDate: 'December 2022',
@@ -78,28 +73,24 @@ const App = () => {
 					{
 						id: uuidv4(),
 						bullet:
-							'Collaborated with clients and other agencies to identify business requirements and deliver tailored web-based solutions',
-					},
-					{
-						id: uuidv4(),
-						bullet: 'Utilized data analytics to optimize web performance and user engagement',
+							'Collaborated with individual clients and agencies to identify business requirements and deliver web-based solutions',
 					},
 					{
 						id: uuidv4(),
 						bullet:
-							'Implemented front-end technologies (HTML5, CSS3, JavaScript, React) to deliver interactive user experiences',
+							'Helped drive one e-commerce site to over 10,000 monthly visitors through analytics-driven enhancements',
 					},
 					{
 						id: uuidv4(),
 						bullet:
-							'Drove revenue growth through proactive sales strategies, acquiring and managing a strong client base',
+							'Showcased expertise in front-end technologies such as CSS and React, developing dynamic and interactive user interfaces',
 					},
 				],
 			},
 			{
 				id: uuidv4(),
 				company: 'Markel Corporation',
-				title: 'Surety Underwriting Intern',
+				title: 'Underwriting Intern',
 				location: 'Austin, TX',
 				startDate: 'June 2022',
 				endDate: 'August 2022',
@@ -107,12 +98,12 @@ const App = () => {
 					{
 						id: uuidv4(),
 						bullet:
-							'Developed a solid foundation in a large corporate setting, gaining valuable experience within a Fortune 500 company',
+							'Gained foundational experience in a Fortune 500 setting, fostering adaptability and corporate understanding',
 					},
 					{
 						id: uuidv4(),
 						bullet:
-							'Presented research findings to C-suite executives, providing data-driven insights into industry trends and implications',
+							'Delivered research insights to C-suite executives, offering data-driven perspectives on industry trends',
 					},
 					{
 						id: uuidv4(),
@@ -122,7 +113,7 @@ const App = () => {
 					{
 						id: uuidv4(),
 						bullet:
-							'Analyzed various financial statements and supported underwriters in risk analysis through financial modeling techniques',
+							'Applied financial modeling for risk analysis, demonstrating quantitative skills',
 					},
 				],
 			},
@@ -137,17 +128,12 @@ const App = () => {
 					{
 						id: uuidv4(),
 						bullet:
-							'Gained valuable entrepreneurial experience through the establishment of a hemp processing and brokering venture',
+							'Established and led a family-involved agricultural venture, gaining entrepreneurial experience in processing and brokering',
 					},
 					{
 						id: uuidv4(),
 						bullet:
-							'Ensured compliance with licensing and regulatory requirements by liaising with local authorities',
-					},
-					{
-						id: uuidv4(),
-						bullet:
-							'Managed and implemented IT infrastructure, ensuring seamless business operations and data integrity',
+							'Managed and implemented entire IT infrastructure, ensuring seamless business operations and data integrity',
 					},
 				],
 			},
@@ -155,59 +141,83 @@ const App = () => {
 		projects: [
 			{
 				id: uuidv4(),
+				name: 'Dossi AI',
+				client: 'Personal AI Project',
+				startDate: '',
+				endDate: 'Fall 2023',
+				description: [
+					{
+						id: uuidv4(),
+						bullet:
+							'Developed custom full-stack Next.js retrieval-augmented generation tool for chatting with personal PDF documents',
+					},
+					{
+						id: uuidv4(),
+						bullet:
+							'Designed a singular relational database schema to store account data, file metadata, and document embeddings',
+					},
+					{
+						id: uuidv4(),
+						bullet:
+							'Integrated and deployed locally hosted large language models, ensuring offline functionality and enhanced data privacy',
+					},
+					{
+						id: uuidv4(),
+						bullet:
+							'Created a Node.js based API for streamlined backend operations, featuring authentication, chat generation, document processing, and S3 bucket storage capabilities',
+					},
+				],
+			},
+			{
+				id: uuidv4(),
+				name: 'Overseerr',
+				client: 'Open Source Contributor',
+				startDate: '',
+				endDate: 'Fall 2023',
+				description: [
+					{
+						id: uuidv4(),
+						bullet:
+							'Addressed and resolved bugs in a widely used Next.js application with over 40 million downloads',
+					},
+					{
+						id: uuidv4(),
+						bullet:
+							'Acquired hands-on experience in a large-scale production codebase and monorepo environment',
+					},
+					{
+						id: uuidv4(),
+						bullet:
+							'Successfully navigated thorough code reviews and continuous integration continuous delivery checks, demonstrating proficiency in collaborative and quality-assured development practices',
+					},
+				],
+			},
+			{
+				id: uuidv4(),
 				name: 'Conflict Management System',
-				client: 'Slayden Grubert Beard PLLC',
+				client: 'MIS 374: Business Systems Development',
 				startDate: '',
 				endDate: 'Fall 2022',
 				description: [
 					{
 						id: uuidv4(),
 						bullet:
-							'Developed a tailored application in collaboration with a local law firm to monitor potential conflicts of interest',
+							'Partnered with a local patent law firm to create a full-stack application for monitoring potential conflicts of interest',
 					},
 					{
 						id: uuidv4(),
 						bullet:
-							'Played an active role in the software development life cycle, gathering and analyzing business requirements',
+							'Managed the entire software development lifecycle, from gathering business requirements to implementation',
 					},
 					{
 						id: uuidv4(),
 						bullet:
-							'Served as a dedicated developer within an Agile team, emphasizing effective communication and iterative development',
+							'Served as a dedicated developer within an Agile team, completing tickets and sprints as delegated by project manager',
 					},
 					{
 						id: uuidv4(),
 						bullet:
-							'Integrated third-party APIs to automate processes and seamlessly connect the custom application with existing systems',
-					},
-				],
-			},
-			{
-				id: uuidv4(),
-				name: 'Book Store System Project',
-				client: 'MIS 333K: Web Application Development',
-				startDate: '',
-				endDate: 'Spring 2022',
-				description: [
-					{
-						id: uuidv4(),
-						bullet:
-							'Developed a full stack ASP.NET pseudo ecommerce site hosted on Microsoft Azure',
-					},
-					{
-						id: uuidv4(),
-						bullet:
-							'Created a robust relational database schema, optimizing table relationships for efficient data management',
-					},
-					{
-						id: uuidv4(),
-						bullet:
-							'Implemented various LINQ queries to facilitate seamless interaction with the cloud-hosted SQL relational database',
-					},
-					{
-						id: uuidv4(),
-						bullet:
-							'Utilized Git version control for effective coordination of changes and feature implementations within the development team',
+							'Successfully deployed the application within the projected timeframe and provided training to over a dozen employees, ensuring seamless adoption of the software',
 					},
 				],
 			},
@@ -229,7 +239,7 @@ const App = () => {
 				id: uuidv4(),
 				name: 'Skills',
 				description:
-					'SQL, Python, JavaScript, HTML, CSS, Docker, Unifi, Agile Methodology, Prompt Engineering, Customer Success, MS Office',
+					'SQL, Python, React, JavaScript, TypeScript, HTML, CSS, Docker, Agile Methodology, Prompt Engineering, MS Office',
 			},
 			{
 				id: uuidv4(),
@@ -240,7 +250,7 @@ const App = () => {
 				id: uuidv4(),
 				name: 'Interests',
 				description:
-					'Weightlifting, Sim Racing, Overlanding, Skiing, NCAA Football, Homelabbing, Networking',
+					'Weightlifting, Sim Racing, Overlanding, Skiing, College Football, Homelabbing',
 			},
 			{
 				id: uuidv4(),

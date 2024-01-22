@@ -50,6 +50,61 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 				</div>
 			)}
 
+			{/*Education*/}
+			{resumeData.education.length > 0 && (
+				<div>
+					<h2 className="font-calibri ligatures-none w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
+						{resumeData.sectionTitles[0].education}
+					</h2>
+					<div className="mt-[5.25pt] flex flex-col gap-1">
+						{resumeData.education.map((educationItem) => (
+							<div key={educationItem.id} className="">
+								<div className="flex justify-between gap-3">
+									<div className="flex flex-col">
+										<p className="font-calibri ligatures-none text-[10.5pt] font-bold leading-[1.15]">
+											{educationItem.institution}
+										</p>
+										<p className="font-calibri ligatures-none text-[10.5pt] font-bold leading-[1.15]">
+											{educationItem.school}
+										</p>
+									</div>
+									<div className="flex flex-col">
+										<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
+											{educationItem.degree}
+										</p>
+										<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
+											{educationItem.major}
+										</p>
+										{educationItem.gpa && (
+											<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
+												Final GPA: {educationItem.gpa}
+											</p>
+										)}
+									</div>
+
+									{educationItem.endDate && (
+										<div className="flex gap-1">
+											<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
+												{educationItem.startDate}
+											</p>
+											{educationItem.startDate && educationItem.endDate && (
+												<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
+													{' '}
+													-{' '}
+												</p>
+											)}
+											<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
+												{educationItem.endDate}
+											</p>
+										</div>
+									)}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			)}
+
 			{/*Experience*/}
 			{resumeData.experience.length > 0 && (
 				<div>
@@ -103,61 +158,6 @@ const McCombsResume = React.forwardRef(({ resumeData }, ref) => {
 										</p>
 									</div>
 								))}
-							</div>
-						))}
-					</div>
-				</div>
-			)}
-
-			{/*Education*/}
-			{resumeData.education.length > 0 && (
-				<div>
-					<h2 className="font-calibri ligatures-none w-full border-b-[1px] border-black text-[10.5pt] font-bold uppercase leading-none">
-						{resumeData.sectionTitles[0].education}
-					</h2>
-					<div className="mt-[5.25pt] flex flex-col gap-1">
-						{resumeData.education.map((educationItem) => (
-							<div key={educationItem.id} className="">
-								<div className="flex justify-between gap-3">
-									<div className="flex flex-col">
-										<p className="font-calibri ligatures-none text-[10.5pt] font-bold leading-[1.15]">
-											{educationItem.institution}
-										</p>
-										<p className="font-calibri ligatures-none text-[10.5pt] font-bold leading-[1.15]">
-											{educationItem.school}
-										</p>
-									</div>
-									<div className="flex flex-col">
-										<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
-											{educationItem.degree}
-										</p>
-										<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
-											{educationItem.major}
-										</p>
-										{educationItem.gpa && (
-											<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
-												Final GPA: {educationItem.gpa}
-											</p>
-										)}
-									</div>
-
-									{educationItem.endDate && (
-										<div className="flex gap-1">
-											<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
-												{educationItem.startDate}
-											</p>
-											{educationItem.startDate && educationItem.endDate && (
-												<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
-													{' '}
-													-{' '}
-												</p>
-											)}
-											<p className="font-calibri ligatures-none text-[10.5pt] leading-[1.15]">
-												{educationItem.endDate}
-											</p>
-										</div>
-									)}
-								</div>
 							</div>
 						))}
 					</div>
